@@ -1,0 +1,161 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Briefcase, Calendar, MapPin, Building, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+
+interface Job {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  highlights: string[];
+  tags: string[];
+}
+
+const experienceData: Job[] = [
+  {
+    company: 'Balbix',
+    role: 'AI Software Engineer',
+    period: 'July 2022 – August 2024',
+    location: 'San Jose, CA (Remote)',
+    highlights: [
+      'Deployed PySpark clusters and processing engines handling 500k+ real-time vulnerability feeds into automated remediation systems.',
+      'Orchestrated Airflow DAG schedules on production Kubernetes environments to analyze and catalog vulnerability attributes of 2M+ End-Of-Life (EOL) packages.',
+      'Designed high-throughput Cassandra event architectures managing transactional states for pipelines across 5M+ active customer endpoints.',
+      'Formulated statistical cybersecurity breach prediction frameworks mapping CVSS scores and CWE classifications to organizational risks for C-suite engineering briefings.',
+    ],
+    tags: ['PySpark', 'Cassandra', 'Kubernetes', 'Airflow', 'Python', 'AWS', 'Statistical Modeling'],
+  },
+  {
+    company: 'Balbix',
+    role: 'Engineering Intern',
+    period: 'June 2021 – September 2021',
+    location: 'San Jose, CA',
+    highlights: [
+      'Built Q-learning and Actor-Critic Reinforcement Learning models inside customized Gym environments to simulate and map lateral movement threat vectors.',
+      'Modelled optimal defense paths for corporate networks under simulated network penetration layouts.',
+    ],
+    tags: ['Reinforcement Learning', 'Q-learning', 'Actor-Critic', 'Python', 'OpenAI Gym'],
+  },
+];
+
+export default function Experience() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 25, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring' as const, damping: 25, stiffness: 100 },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col gap-12"
+    >
+      {/* Header */}
+      <section>
+        <motion.span variants={itemVariants} className="text-xs font-sans font-bold tracking-wider text-accent uppercase block mb-2">
+          Industry Impact
+        </motion.span>
+        <motion.h1 variants={itemVariants} className="title-xl font-serif text-primary">
+          Professional Experience
+        </motion.h1>
+        <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
+          My time in the cybersecurity industry focused on scale, robustness, and applying machine learning to parse millions of signals. This engineering rigor directly informs my approach to research in decentralized autonomy and multi-agent operations.
+        </motion.p>
+      </section>
+
+      {/* Experience Cards */}
+      <section className="flex flex-col gap-8">
+        {experienceData.map((job) => (
+          <motion.div
+            key={job.role}
+            variants={itemVariants}
+            className="card border border-border-color glass p-6 md:p-8 flex flex-col gap-6"
+          >
+            {/* Header info */}
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border-color/50 pb-5">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-2xl bg-accent/10 text-accent">
+                  <Briefcase size={24} />
+                </div>
+                <div>
+                  <h2 className="font-serif text-xl md:text-2xl font-bold text-primary">
+                    {job.role}
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-text-muted mt-1 font-medium font-sans">
+                    <span className="flex items-center gap-1 text-primary">
+                      <Building size={14} /> {job.company}
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <MapPin size={14} /> {job.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <span className="font-sans text-xs md:text-sm font-bold text-accent px-3 py-1.5 rounded-xl bg-accent/10 self-start flex items-center gap-1.5">
+                <Calendar size={14} /> {job.period}
+              </span>
+            </div>
+
+            {/* Accomplishments */}
+            <div>
+              <h3 className="font-serif text-sm font-bold tracking-wider text-text-muted uppercase mb-3">
+                Key Accomplishments
+              </h3>
+              <ul className="list-disc pl-5 font-sans text-sm md:text-base text-foreground/80 flex flex-col gap-3">
+                {job.highlights.map((highlight, idx) => (
+                  <li key={idx} className="leading-relaxed">{highlight}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 border-t border-border-color/50 pt-4">
+              {job.tags.map((tag) => (
+                <span key={tag} className="tag text-xs">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </section>
+
+      {/* Skills Page CTA */}
+      <section>
+        <motion.div
+          variants={itemVariants}
+          className="card border border-border-color bg-gradient-to-r from-accent/[0.02] to-primary/[0.02] glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div>
+            <h3 className="font-serif text-xl font-bold text-primary">Interactive Skill Matrix</h3>
+            <p className="font-sans text-sm text-text-muted mt-1">
+              Explore how these industry languages and tools connect directly with my academic research frameworks.
+            </p>
+          </div>
+          <Link
+            href="/skills"
+            className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-md shrink-0"
+          >
+            Open Skills Graph <ChevronRight size={16} />
+          </Link>
+        </motion.div>
+      </section>
+    </motion.div>
+  );
+}
