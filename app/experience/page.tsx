@@ -70,7 +70,7 @@ export default function Experience() {
         <motion.span variants={itemVariants} className="text-xs font-sans font-bold tracking-wider text-accent uppercase block mb-2">
           Industry Impact
         </motion.span>
-        <motion.h1 variants={itemVariants} className="title-xl font-serif text-white">
+        <motion.h1 variants={itemVariants} className="title-xl font-serif text-primary">
           Professional Experience
         </motion.h1>
         <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
@@ -84,7 +84,7 @@ export default function Experience() {
           <motion.div
             key={job.role}
             variants={itemVariants}
-            className="relative card border border-white/5 glass p-6 md:p-8 flex flex-col gap-6 bg-slate-900/30"
+            className="relative card border border-border-color bg-white p-6 md:p-8 flex flex-col gap-6"
           >
             {/* Timeline Node Icon */}
             <div className="timeline-node -left-[48px] md:-left-[61px]">
@@ -92,17 +92,17 @@ export default function Experience() {
             </div>
 
             {/* Header info */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-white/5 pb-5">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border-color pb-5 font-sans">
               <div className="flex items-center gap-4">
-                <div className="p-3 rounded-2xl bg-white/5 border border-white/5 text-accent-light">
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-border-color text-accent">
                   <Building size={20} />
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl md:text-2xl font-bold text-white">
+                  <h2 className="font-serif text-xl md:text-2xl font-bold text-primary">
                     {job.role}
                   </h2>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-text-muted mt-1 font-medium font-sans">
-                    <span className="text-primary-light font-semibold">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-text-muted mt-1 font-medium">
+                    <span className="text-primary font-semibold">
                       {job.company}
                     </span>
                     <span>•</span>
@@ -112,7 +112,7 @@ export default function Experience() {
                   </div>
                 </div>
               </div>
-              <span className="font-sans text-xs md:text-sm font-bold text-accent px-3 py-1.5 rounded-xl bg-accent/10 border border-accent/25 self-start flex items-center gap-1.5">
+              <span className="text-xs md:text-sm font-bold text-accent px-3 py-1.5 rounded-xl bg-accent/5 border border-accent/10 self-start flex items-center gap-1.5">
                 <Calendar size={14} /> {job.period}
               </span>
             </div>
@@ -130,7 +130,7 @@ export default function Experience() {
             </div>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 border-t border-white/5 pt-4">
+            <div className="flex flex-wrap gap-2 border-t border-border-color pt-4">
               {job.tags.map((tag) => (
                 <span key={tag} className="tag text-xs">
                   {tag}
@@ -145,17 +145,17 @@ export default function Experience() {
       <section>
         <motion.div
           variants={itemVariants}
-          className="card border border-white/5 bg-gradient-to-r from-primary/5 to-accent/5 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="card border border-border-color bg-slate-50/50 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div>
-            <h3 className="font-serif text-xl font-bold text-white">Interactive Skill Matrix</h3>
+            <h3 className="font-serif text-xl font-bold text-primary">Interactive Skill Matrix</h3>
             <p className="font-sans text-sm text-text-muted mt-1">
               Explore how these industry languages and tools connect directly with my academic research frameworks.
             </p>
           </div>
           <Link
             href="/skills"
-            className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-accent text-slate-900 rounded-xl hover:bg-accent-light transition-all shadow-md shrink-0 font-sans"
+            className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-md shrink-0 font-sans"
           >
             Open Skills Graph <ChevronRight size={16} />
           </Link>

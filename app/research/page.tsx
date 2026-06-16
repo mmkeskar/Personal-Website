@@ -75,16 +75,16 @@ export default function Research() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15 },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 25, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: 'spring' as const, damping: 25, stiffness: 100 },
+      transition: { type: 'spring' as const, damping: 25, stiffness: 120 },
     },
   };
 
@@ -100,7 +100,7 @@ export default function Research() {
         <motion.span variants={itemVariants} className="text-xs font-sans font-bold tracking-wider text-accent uppercase block mb-2">
           Academic Inquiry
         </motion.span>
-        <motion.h1 variants={itemVariants} className="title-xl font-serif text-white">
+        <motion.h1 variants={itemVariants} className="title-xl font-serif text-primary">
           Research Engagements
         </motion.h1>
         <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
@@ -114,7 +114,7 @@ export default function Research() {
           <motion.div
             key={lab.name}
             variants={itemVariants}
-            className="relative card border border-white/5 glass p-6 md:p-8 flex flex-col gap-6 bg-slate-900/30"
+            className="relative card border border-border-color bg-white p-6 md:p-8 flex flex-col gap-6"
           >
             {/* Timeline Node Icon */}
             <div className="timeline-node -left-[48px] md:-left-[61px]">
@@ -122,17 +122,17 @@ export default function Research() {
             </div>
 
             {/* Content Header */}
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 font-sans">
               <div>
-                <h2 className="font-serif text-xl md:text-2xl font-bold text-white">
+                <h2 className="font-serif text-xl md:text-2xl font-bold text-primary">
                   {lab.name}
                 </h2>
-                <p className="font-sans text-sm md:text-base font-semibold text-accent-light mt-1">
+                <p className="text-sm md:text-base font-semibold text-accent mt-1">
                   {lab.role}
                 </p>
               </div>
-              <div className="flex flex-col md:items-end gap-1 shrink-0 font-sans text-xs text-text-muted font-medium">
-                <span className="flex items-center gap-1.5 text-primary-light">
+              <div className="flex flex-col md:items-end gap-1 shrink-0 text-xs text-text-muted font-medium">
+                <span className="flex items-center gap-1.5 text-accent font-semibold">
                   <Calendar size={12} /> {lab.period}
                 </span>
                 <span className="flex items-center gap-1.5 md:justify-end mt-0.5">
@@ -142,7 +142,7 @@ export default function Research() {
             </div>
 
             {/* Lab Overview */}
-            <p className="font-sans text-sm md:text-base text-foreground/80 border-l-2 border-accent/20 pl-4 py-1 italic bg-white/[0.01]">
+            <p className="font-sans text-sm md:text-base text-foreground/80 border-l-2 border-border-color pl-4 py-1 italic bg-slate-50/50">
               {lab.description}
             </p>
 
@@ -151,7 +151,7 @@ export default function Research() {
               <div className="flex flex-col gap-6">
                 {lab.tracks.map((track) => (
                   <div key={track.title} className="flex flex-col gap-3">
-                    <h3 className="font-serif text-base font-bold text-white flex items-center gap-2">
+                    <h3 className="font-serif text-base font-bold text-primary flex items-center gap-2">
                       <GraduationCap size={16} className="text-accent" /> {track.title}
                     </h3>
                     <ul className="list-disc pl-5 font-sans text-sm text-foreground/85 flex flex-col gap-2">
@@ -174,7 +174,7 @@ export default function Research() {
             )}
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 border-t border-white/5 pt-4">
+            <div className="flex flex-wrap gap-2 border-t border-border-color pt-4">
               {lab.tags.map((tag) => (
                 <span key={tag} className="tag text-xs">
                   {tag}
@@ -189,17 +189,17 @@ export default function Research() {
       <section className="mt-6">
         <motion.div
           variants={itemVariants}
-          className="card border border-white/5 bg-gradient-to-r from-primary/5 to-accent/5 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="card border border-border-color bg-slate-50/50 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div>
-            <h3 className="font-serif text-xl font-bold text-white">Publications Registry</h3>
+            <h3 className="font-serif text-xl font-bold text-primary">Publications Registry</h3>
             <p className="font-sans text-sm text-text-muted mt-1">
               Read my published conference proceedings and workshop papers in autonomous transit and vision systems.
             </p>
           </div>
           <Link
             href="/publications"
-            className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-accent text-slate-900 rounded-xl hover:bg-accent-light transition-all shadow-md shrink-0 font-sans"
+            className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-md shrink-0 font-sans"
           >
             Go to Publications <ArrowUpRight size={16} />
           </Link>

@@ -146,7 +146,7 @@ export default function Publications() {
         <motion.span variants={cardVariants} className="text-xs font-sans font-bold tracking-wider text-accent uppercase block mb-2">
           Scholarly Output
         </motion.span>
-        <motion.h1 variants={cardVariants} className="title-xl font-serif text-white">
+        <motion.h1 variants={cardVariants} className="title-xl font-serif text-primary">
           Publication Registry
         </motion.h1>
         <motion.p variants={cardVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
@@ -155,7 +155,7 @@ export default function Publications() {
       </section>
 
       {/* Search & Filtering Controls */}
-      <section className="flex flex-col gap-5 bg-slate-900/30 p-6 rounded-3xl glass border border-white/5 shadow-md">
+      <section className="flex flex-col gap-5 bg-white p-6 rounded-2xl border border-border-color shadow-sm">
         {/* Search Bar */}
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" size={20} />
@@ -164,15 +164,15 @@ export default function Publications() {
             placeholder="Search by title, venue, or authors..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3.5 text-sm md:text-base border border-white/5 rounded-2xl bg-slate-950/40 focus:bg-slate-950/90 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all font-sans text-foreground placeholder:text-text-muted/65"
+            className="w-full pl-12 pr-4 py-3 border border-border-color rounded-xl bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/10 focus:border-accent transition-all font-sans text-foreground placeholder:text-text-muted"
           />
         </div>
 
         {/* Tag Filters */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-1">
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-1 font-sans">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="font-sans text-xs font-bold text-text-muted flex items-center gap-1.5 mr-2">
-              <Filter size={14} className="text-primary-light" /> Filter tags:
+            <span className="text-xs font-bold text-text-muted flex items-center gap-1.5 mr-2">
+              <Filter size={14} className="text-accent" /> Filter tags:
             </span>
             {availableTags.map((tag) => {
               const isSelected = selectedTags.includes(tag);
@@ -180,10 +180,10 @@ export default function Publications() {
                 <button
                   key={tag}
                   onClick={() => handleTagToggle(tag)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all focus:outline-none font-sans ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus:outline-none ${
                     isSelected
-                      ? 'bg-primary border-primary text-white shadow-md shadow-primary/10'
-                      : 'border-white/5 bg-slate-950/30 text-text-muted hover:text-accent-light hover:border-accent-light/40'
+                      ? 'bg-accent border-accent text-white shadow-sm'
+                      : 'border-border-color bg-white text-text-muted hover:text-accent hover:border-accent'
                   }`}
                 >
                   #{tag.replace(/\s+/g, '')}
@@ -195,7 +195,7 @@ export default function Publications() {
           {(searchQuery || selectedTags.length > 0) && (
             <button
               onClick={resetFilters}
-              className="flex items-center gap-1.5 text-xs font-bold text-primary-light hover:text-accent-light focus:outline-none transition-colors font-sans"
+              className="flex items-center gap-1.5 text-xs font-bold text-accent hover:text-accent-light focus:outline-none transition-colors"
             >
               <RotateCcw size={12} /> Clear Filters
             </button>
@@ -219,21 +219,21 @@ export default function Publications() {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, scale: 0.98 }}
-              className="card border border-white/5 glass p-6 md:p-8 flex flex-col justify-between gap-6 hover:shadow-md bg-slate-900/20"
+              className="card border border-border-color bg-white p-6 md:p-8 flex flex-col justify-between gap-6 hover:shadow-md"
             >
               <div className="flex flex-col gap-4">
                 {/* Meta details */}
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/5 pb-3">
-                  <span className="text-xs font-sans font-bold tracking-wider text-accent-light uppercase">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-color pb-3 font-sans">
+                  <span className="text-xs font-bold tracking-wider text-accent uppercase">
                     {pub.venue}
                   </span>
-                  <span className="text-xs font-sans font-bold text-text-muted">
+                  <span className="text-xs font-bold text-text-muted">
                     {pub.year}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-lg md:text-xl font-bold text-white leading-snug">
+                <h3 className="font-serif text-lg md:text-xl font-bold text-primary leading-snug">
                   {pub.title}
                 </h3>
 
@@ -244,19 +244,19 @@ export default function Publications() {
               </div>
 
               {/* Actions & Tags */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-white/5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3 border-t border-border-color">
                 <div className="flex flex-wrap gap-2">
                   {pub.tags.map((tag) => (
-                    <span key={tag} className="tag text-[10px] py-1 px-2.5 rounded-lg">
+                    <span key={tag} className="tag text-[10px]">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex items-center gap-3 shrink-0 font-sans">
                   <button
                     onClick={() => setActivePreviewPub(pub)}
-                    className="flex items-center gap-1.5 px-4.5 py-2.5 text-xs font-bold border border-white/10 rounded-xl hover:bg-white/5 hover:text-white transition-colors bg-slate-950/20 font-sans"
+                    className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border border-border-color rounded-xl hover:bg-slate-50 hover:text-accent transition-colors bg-white"
                   >
                     <BookOpen size={14} /> Preview Abstract
                   </button>
@@ -266,7 +266,7 @@ export default function Publications() {
                       e.preventDefault();
                       alert("In production, this button redirects to the publisher link (e.g. IEEE Xplore, arXiv, ACM).");
                     }}
-                    className="flex items-center gap-1.5 px-4.5 py-2.5 text-xs font-bold bg-primary text-white rounded-xl hover:bg-primary-light transition-colors font-sans shadow-sm shadow-primary/10"
+                    className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-sm shadow-accent/10"
                   >
                     Publisher <ExternalLink size={14} />
                   </a>
@@ -280,10 +280,10 @@ export default function Publications() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="card border border-dashed border-white/10 text-center py-16 text-text-muted glass bg-slate-900/10"
+            className="card border border-dashed border-border-color text-center py-16 text-text-muted bg-white/50"
           >
             <BookOpen size={36} className="mx-auto text-text-muted/40 mb-3" />
-            <p className="font-serif text-lg font-bold text-white">No Publications Found</p>
+            <p className="font-serif text-lg font-bold text-primary">No Publications Found</p>
             <p className="font-sans text-sm text-text-muted mt-1 max-w-sm mx-auto">
               We couldn&apos;t find any publications matching your current search queries or tag filters. Try modifying your settings.
             </p>

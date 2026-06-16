@@ -10,30 +10,30 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 15, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         type: 'spring' as const,
         damping: 25,
-        stiffness: 120,
+        stiffness: 150,
       },
     },
   };
 
   const floatingBadges = [
-    { text: 'MARL', x: '12%', y: '18%' },
-    { text: 'Computer Vision', x: '70%', y: '12%' },
-    { text: 'Robotics', x: '8%', y: '72%' },
-    { text: 'Big Data', x: '76%', y: '68%' },
-    { text: 'Probability & Stats', x: '42%', y: '48%' },
+    { text: 'MARL', x: '12%', y: '16%' },
+    { text: 'Computer Vision', x: '65%', y: '14%' },
+    { text: 'Robotics', x: '10%', y: '72%' },
+    { text: 'Big Data', x: '72%', y: '70%' },
+    { text: 'Probability & Stats', x: '38%', y: '46%' },
   ];
 
   return (
@@ -41,82 +41,78 @@ export default function Home() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="flex flex-col gap-16 md:gap-28"
+      className="flex flex-col gap-16 md:gap-24"
     >
       {/* Hero / Profile Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-8">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-6">
         <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-6">
           <div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              <span className="text-gradient">Maitrayee Keskar</span>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-tight">
+              Maitrayee Keskar
             </h1>
-            <p className="font-sans text-lg md:text-xl font-semibold text-accent-light mt-4 flex items-center gap-2">
+            <p className="font-sans text-lg md:text-xl font-semibold text-accent mt-3">
               Ph.D. Student in EECS
             </p>
-            <p className="font-sans text-sm md:text-base text-text-muted mt-1 font-semibold tracking-wide uppercase">
-              University of California, Merced
+            <p className="font-sans text-xs md:text-sm text-text-muted mt-1.5 font-bold tracking-wider uppercase">
+              University of California, Merced (Starting August 2026)
             </p>
           </div>
 
           <div className="font-sans text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl flex flex-col gap-4">
             <p>
-              I am a doctoral researcher exploring the intersection of **foundational mathematics** and **decentralized autonomy**. Under the mentorship of <strong className="text-white">Prof. Ross Greer</strong>, my doctoral research at UC Merced starting August 2026 centers on Multi-Agent Reinforcement Learning (MARL), trajectory planning, and intent recognition.
+              I am a doctoral researcher driven by the intersection of foundational mathematics and autonomy. Under the mentorship of <strong>Prof. Ross Greer</strong>, my work at UC Merced targets coordination and intent recognition inside complex multi-agent frameworks.
             </p>
             <p>
-              By bridging a rigorous academic background in **Probability and Statistics** from UC San Diego with enterprise experience deploying high-performance distributed architectures at **Balbix**, I design resilient, self-organizing systems capable of joint perception and cooperative decision-making.
+              By bridging a mathematical background in <strong>Probability and Statistics</strong> with engineering experience developing large-scale distributed analytics at <strong>Balbix</strong>, I design resilient systems capable of joint perception and decision-making—advancing multi-agent reinforcement learning, computer vision, and dynamic robot control.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 mt-2">
+          <div className="flex flex-wrap gap-4 mt-2 font-sans">
             <Link
               href="/research"
-              className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary-light transition-all shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/35 hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-sm shadow-accent/10 hover:-translate-y-0.5"
             >
               Explore Research <ChevronRight size={16} />
             </Link>
             <Link
               href="/publications"
-              className="flex items-center gap-2 px-6 py-3 text-sm font-semibold border border-border-color rounded-xl hover:bg-white/5 hover:text-white transition-all bg-card-bg"
+              className="flex items-center gap-2 px-6 py-3 text-sm font-semibold border border-border-color rounded-xl hover:bg-slate-50 transition-all bg-card-bg text-primary-light"
             >
               Publications
             </Link>
           </div>
         </motion.div>
 
-        {/* Abstract High-Tech Interactive Graphic */}
+        {/* Abstract Minimalist Geometric Graphic */}
         <motion.div
           variants={itemVariants}
-          className="lg:col-span-5 relative h-[360px] md:h-[400px] flex items-center justify-center"
+          className="lg:col-span-5 relative h-[340px] md:h-[380px] flex items-center justify-center"
         >
           {/* Main Visual Node */}
-          <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full glass border border-primary/20 shadow-lg flex items-center justify-center p-6 bg-gradient-to-tr from-primary/5 to-accent/5">
+          <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-3xl glass border border-border-color shadow-md flex items-center justify-center p-6 bg-white">
             <div className="text-center z-10">
-              <span className="font-serif text-3xl md:text-4xl font-extrabold text-white tracking-wider">MK</span>
-              <p className="font-sans text-[9px] text-accent font-bold tracking-widest mt-2 uppercase">
+              <span className="font-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">MK</span>
+              <p className="font-sans text-[10px] text-text-muted font-bold tracking-widest mt-1 uppercase">
                 Autonomy Lab
               </p>
             </div>
 
-            {/* Glowing inner rings */}
-            <div className="absolute inset-[10px] rounded-full border border-primary/10 animate-[pulse_3s_infinite]" />
-
-            {/* Orbiting Lines */}
-            <svg className="absolute inset-[-10px] w-[calc(100%+20px)] h-[calc(100%+20px)] pointer-events-none opacity-40">
-              <circle cx="50%" cy="50%" r="48%" fill="none" stroke="url(#indigo-cyan)" strokeWidth="1" strokeDasharray="4 6" className="animate-[spin_40s_linear_infinite]" />
-              <circle cx="50%" cy="50%" r="42%" fill="none" stroke="url(#indigo-cyan)" strokeWidth="1" strokeDasharray="40 120" className="animate-[spin_20s_linear_infinite_reverse]" />
-              <circle cx="50%" cy="50%" r="35%" fill="none" stroke="url(#indigo-cyan)" strokeWidth="1.5" className="opacity-10" />
-              <defs>
-                <linearGradient id="indigo-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#818CF8" />
-                  <stop offset="100%" stopColor="#22D3EE" />
-                </linearGradient>
-              </defs>
+            {/* Geometric SVG Drawing Grid */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+              {/* Circular grids */}
+              <circle cx="50%" cy="50%" r="40%" fill="none" stroke="#64748B" strokeWidth="1" strokeDasharray="3 4" />
+              <circle cx="50%" cy="50%" r="30%" fill="none" stroke="#64748B" strokeWidth="1" />
+              <circle cx="50%" cy="50%" r="20%" fill="none" stroke="#64748B" strokeWidth="1" strokeDasharray="10 5" />
+              
+              {/* Dynamic trajectory lines */}
+              <path d="M 30,30 Q 120,60 150,150" fill="none" stroke="#2563EB" strokeWidth="1.5" />
+              <path d="M 220,220 Q 150,200 90,90" fill="none" stroke="#64748B" strokeWidth="1" />
             </svg>
 
             {/* Orbiting Small Nodes */}
-            <div className="absolute top-[8%] right-[20%] w-3 h-3 bg-accent rounded-full shadow-[0_0_10px_#06B6D4] animate-pulse" />
-            <div className="absolute bottom-[20%] left-[12%] w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_#818CF8]" />
-            <div className="absolute bottom-[10%] right-[32%] w-2 h-2 bg-accent-purple rounded-full shadow-[0_0_8px_#C084FC] animate-ping" />
+            <div className="absolute top-[10%] right-[25%] w-3 h-3 bg-accent rounded-full border-2 border-white shadow-sm" />
+            <div className="absolute bottom-[22%] left-[15%] w-2 h-2 bg-[#64748B] rounded-full" />
+            <div className="absolute bottom-[12%] right-[35%] w-2 h-2 bg-accent rounded-full border border-white" />
           </div>
 
           {/* Floating Text Badges */}
@@ -124,14 +120,14 @@ export default function Home() {
             <motion.div
               key={badge.text}
               initial={{ y: 0 }}
-              animate={{ y: [0, -6, 0] }}
+              animate={{ y: [0, -5, 0] }}
               transition={{
-                duration: 5 + idx,
+                duration: 6 + idx,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
               style={{ left: badge.x, top: badge.y }}
-              className="absolute px-3 py-1.5 rounded-xl text-xs font-semibold glass border border-white/5 shadow-md text-foreground/90 font-sans cursor-default hover:border-primary/40 transition-colors bg-slate-900/60"
+              className="absolute px-3 py-1.5 rounded-xl text-xs font-semibold glass border border-border-color shadow-sm text-foreground/80 font-sans cursor-default hover:border-accent/30 transition-colors bg-white/95"
             >
               {badge.text}
             </motion.div>
@@ -152,7 +148,7 @@ export default function Home() {
               school: 'University of California, Merced',
               timeline: 'Starting August 2026',
               details: 'Advisor: Prof. Ross Greer. Focusing on multi-agent reinforcement learning, collaborative perception, and intent forecasting.',
-              icon: <GraduationCap className="text-primary" size={24} />,
+              icon: <GraduationCap className="text-accent" size={24} />,
             },
             {
               degree: 'M.S. in ECE',
@@ -166,24 +162,24 @@ export default function Home() {
               school: 'University of California, San Diego',
               timeline: 'Completed | Cum Laude',
               details: 'Minor in Computer Science. Rigorous foundations in statistical inference, modeling proofs, and algorithmic complexity.',
-              icon: <GraduationCap className="text-accent-purple" size={24} />,
+              icon: <GraduationCap className="text-accent" size={24} />,
             },
-          ].map((edu, idx) => (
+          ].map((edu) => (
             <motion.div
               key={edu.degree}
               variants={itemVariants}
-              className="card border border-white/5 glass flex flex-col gap-4 bg-slate-900/30"
+              className="card flex flex-col gap-4 bg-white"
             >
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-border-color">
                   {edu.icon}
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-white">{edu.degree}</h3>
+                  <h3 className="font-serif text-lg font-bold text-primary">{edu.degree}</h3>
                   <span className="font-sans text-xs text-text-muted font-medium">{edu.school}</span>
                 </div>
               </div>
-              <p className="font-sans text-xs font-bold text-primary-light uppercase tracking-wider">{edu.timeline}</p>
+              <p className="font-sans text-xs font-bold text-accent uppercase tracking-wider">{edu.timeline}</p>
               <p className="font-sans text-sm text-foreground/80 leading-relaxed">{edu.details}</p>
             </motion.div>
           ))}
@@ -191,8 +187,8 @@ export default function Home() {
       </section>
 
       {/* Core Achievements & Quick Facts */}
-      <section className="flex flex-col gap-10 bg-slate-900/20 p-8 md:p-10 rounded-3xl border border-white/5 glass">
-        <motion.h2 variants={itemVariants} className="font-serif text-2xl md:text-3xl font-bold text-white relative">
+      <section className="flex flex-col gap-10 bg-slate-50/50 p-8 md:p-10 rounded-2xl border border-border-color glass">
+        <motion.h2 variants={itemVariants} className="font-serif text-2xl md:text-3xl font-bold text-primary">
           Key Milestones
         </motion.h2>
 
@@ -201,31 +197,31 @@ export default function Home() {
             {
               label: 'Waymo Challenge',
               title: 'Top-15 Internationally',
-              desc: 'Placed in the elite global tier in the Waymo End-to-End Trajectory prediction competition using ViT models.',
-              icon: <Award className="text-primary mx-auto md:mx-0" size={28} />,
+              desc: 'Placed in the elite global tier in the Waymo End-to-End Trajectory prediction challenge using ViT models.',
+              icon: <Award className="text-accent mx-auto md:mx-0" size={26} />,
             },
             {
               label: 'Publications',
               title: 'IEEE RA-L First Author',
               desc: 'Published anchor-free keypoint detection models yielding 78.2% AP score on the ApolloCar3D dataset.',
-              icon: <BookOpen className="text-accent mx-auto md:mx-0" size={28} />,
+              icon: <BookOpen className="text-accent mx-auto md:mx-0" size={26} />,
             },
             {
               label: 'Enterprise AI',
               title: 'Scale Infrastructure',
               desc: 'Designed event processing engines and Cassandra state structures parsing 500k+ pipelines at Balbix.',
-              icon: <Briefcase className="text-accent-purple mx-auto md:mx-0" size={28} />,
+              icon: <Briefcase className="text-accent mx-auto md:mx-0" size={26} />,
             },
           ].map((milestone) => (
-            <motion.div key={milestone.title} variants={itemVariants} className="flex flex-col gap-2">
-              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center mx-auto md:mx-0">
+            <motion.div key={milestone.title} variants={itemVariants} className="flex flex-col gap-2 font-sans">
+              <div className="w-11 h-11 rounded-xl bg-white border border-border-color flex items-center justify-center mx-auto md:mx-0 shadow-sm">
                 {milestone.icon}
               </div>
-              <span className="font-sans text-xs font-bold uppercase tracking-widest text-text-muted mt-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-text-muted mt-2">
                 {milestone.label}
               </span>
-              <h3 className="font-serif text-lg font-bold text-white">{milestone.title}</h3>
-              <p className="font-sans text-sm text-foreground/80 leading-relaxed">
+              <h3 className="font-serif text-lg font-bold text-primary">{milestone.title}</h3>
+              <p className="text-sm text-foreground/80 leading-relaxed">
                 {milestone.desc}
               </p>
             </motion.div>
@@ -234,16 +230,16 @@ export default function Home() {
       </section>
 
       {/* Contact Panel */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 border border-white/10 rounded-3xl bg-gradient-to-r from-primary/5 to-accent/5 glass">
+      <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 border border-accent/15 rounded-2xl bg-accent/[0.02] glass">
         <div>
-          <h2 className="font-serif text-xl md:text-2xl font-bold text-white">Let&apos;s Collaborate</h2>
+          <h2 className="font-serif text-xl md:text-2xl font-bold text-primary">Let&apos;s Collaborate</h2>
           <p className="font-sans text-sm md:text-base text-text-muted mt-1">
             Interested in multi-agent reinforcement learning, computer vision, or dynamic robot systems?
           </p>
         </div>
         <a
           href="mailto:mkeskar@ucmerced.edu"
-          className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-accent text-slate-900 rounded-xl hover:bg-accent-light hover:-translate-y-0.5 transition-all shadow-md shadow-accent/10 hover:shadow-accent/25 shrink-0"
+          className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light hover:-translate-y-0.5 transition-all shadow-md shadow-accent/10 shrink-0 font-sans"
         >
           <Mail size={16} /> Contact Email
         </a>
