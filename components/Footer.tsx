@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Affiliation Info */}
         <div className="text-center md:text-left">
-          <p className="font-sans text-sm font-semibold text-primary">Maitrayee Keskar</p>
+          <p className="font-sans text-sm font-bold text-white">Maitrayee Keskar</p>
           <p className="font-sans text-xs text-text-muted mt-1">
             Ph.D. Student in EECS @ University of California, Merced
           </p>

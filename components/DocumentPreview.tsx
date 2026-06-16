@@ -43,7 +43,7 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
           />
 
           {/* Modal Container */}
@@ -52,40 +52,40 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-2xl bg-background border border-border-color rounded-2xl shadow-lg z-10 overflow-hidden flex flex-col max-h-[85vh] glass"
+            className="relative w-full max-w-2xl bg-[#090D1A]/90 border border-white/10 rounded-3xl shadow-2xl z-10 overflow-hidden flex flex-col max-h-[85vh] glass"
           >
             {/* Header */}
-            <div className="flex items-start justify-between p-6 border-b border-border-color">
+            <div className="flex items-start justify-between p-6 border-b border-white/5 bg-slate-950/30">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-accent/10 text-accent">
-                  <FileText size={24} />
+                <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary-light">
+                  <FileText size={22} />
                 </div>
                 <div>
-                  <span className="text-xs font-sans font-semibold tracking-wider text-accent uppercase">
+                  <span className="text-xs font-sans font-bold tracking-wider text-accent-light uppercase">
                     {publication.venue} ({publication.year})
                   </span>
-                  <h3 className="font-serif text-lg md:text-xl font-bold text-primary mt-1">
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-white mt-1.5 leading-snug">
                     {publication.title}
                   </h3>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="text-text-muted hover:text-accent p-1.5 rounded-full hover:bg-accent/5 transition-colors focus:outline-none"
+                className="text-text-muted hover:text-white p-2 rounded-xl hover:bg-white/5 transition-colors focus:outline-none border border-transparent hover:border-white/5"
                 aria-label="Close Preview"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
             </div>
 
             {/* Scrollable Content */}
-            <div className="p-6 overflow-y-auto flex-1 flex flex-col gap-6">
+            <div className="p-6 md:p-8 overflow-y-auto flex-1 flex flex-col gap-6 font-sans">
               {/* Authors */}
               <div>
-                <h4 className="text-xs font-sans font-bold tracking-wider text-text-muted uppercase mb-1">
+                <h4 className="text-xs font-bold tracking-wider text-text-muted uppercase mb-1.5">
                   Authors
                 </h4>
-                <p className="font-sans text-sm text-foreground/90 font-medium">
+                <p className="text-sm md:text-base text-foreground/90 font-semibold">
                   {publication.authors}
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
                 {publication.tags.map((tag) => (
-                  <span key={tag} className="tag text-xs">
+                  <span key={tag} className="tag text-xs py-1 px-3">
                     {tag}
                   </span>
                 ))}
@@ -101,21 +101,21 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
 
               {/* Abstract */}
               <div>
-                <h4 className="text-xs font-sans font-bold tracking-wider text-text-muted uppercase mb-2">
+                <h4 className="text-xs font-bold tracking-wider text-text-muted uppercase mb-2">
                   Abstract
                 </h4>
-                <p className="font-sans text-sm md:text-base text-foreground/80 leading-relaxed bg-accent/5 p-4 rounded-xl border border-accent/10 italic">
+                <p className="text-sm md:text-base text-foreground/85 leading-relaxed bg-white/[0.02] p-5 rounded-2xl border border-white/5 italic">
                   {publication.abstract}
                 </p>
               </div>
 
               {/* Citation Mock */}
-              <div className="bg-border-color/20 p-4 rounded-xl border border-border-color">
-                <div className="flex items-center gap-2 text-text-muted mb-2">
-                  <Quote size={14} />
-                  <span className="text-xs font-sans font-bold uppercase tracking-wider">BibTeX Citation</span>
+              <div className="bg-slate-950/50 p-5 rounded-2xl border border-white/5">
+                <div className="flex items-center gap-2 text-text-muted mb-3">
+                  <Quote size={14} className="text-primary-light" />
+                  <span className="text-xs font-bold uppercase tracking-wider">BibTeX Citation</span>
                 </div>
-                <pre className="font-mono text-xs text-text-muted overflow-x-auto whitespace-pre-wrap select-all">
+                <pre className="font-mono text-[11px] md:text-xs text-text-muted overflow-x-auto whitespace-pre-wrap select-all bg-slate-950/20 p-2 rounded-xl border border-white/2">
 {`@inproceedings{keskar${publication.year}${publication.title.split(' ')[0].toLowerCase()},
   author    = {Keskar, Maitrayee and others},
   title     = {${publication.title}},
@@ -127,12 +127,12 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
             </div>
 
             {/* Footer Actions */}
-            <div className="p-6 border-t border-border-color bg-border-color/10 flex flex-wrap items-center justify-end gap-3">
+            <div className="p-6 border-t border-white/5 bg-slate-950/50 flex flex-wrap items-center justify-end gap-3">
               <a
                 href={publication.pdfUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-border-color rounded-xl hover:bg-accent/5 hover:text-accent transition-colors bg-background"
+                className="flex items-center gap-2 px-5 py-3 text-sm font-semibold border border-white/10 rounded-xl hover:bg-white/5 hover:text-white transition-colors bg-[#090D1A] font-sans"
                 onClick={(e) => {
                   if (!publication.pdfUrl) {
                     e.preventDefault();
@@ -146,7 +146,7 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
                 href={publication.codeUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-colors"
+                className="flex items-center gap-2 px-5 py-3 text-sm font-semibold bg-primary text-white rounded-xl hover:bg-primary-light transition-colors font-sans shadow-md shadow-primary/10"
                 onClick={(e) => {
                   if (!publication.codeUrl) {
                     e.preventDefault();

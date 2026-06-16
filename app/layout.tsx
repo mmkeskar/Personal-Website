@@ -31,6 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
+        {/* Animated ambient backdrop glows */}
+        <div className="ambient-glow-container">
+          <div className="ambient-glow-1" />
+          <div className="ambient-glow-2" />
+        </div>
         <Navbar />
         <main className="main-content container flex-1 flex flex-col justify-start">
           {children}

@@ -36,9 +36,9 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-nav shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container flex items-center justify-between">
         {/* Logo/Name */}
-        <Link href="/" className="font-serif text-xl font-bold tracking-tight text-primary flex items-center gap-2">
+        <Link href="/" className="font-serif text-xl font-bold tracking-tight text-white hover:text-accent-light transition-all flex items-center gap-2">
           <span>Maitrayee Keskar</span>
-          <span className="hidden sm:inline text-xs font-sans font-medium px-2 py-0.5 rounded-full bg-accent/10 text-accent">
+          <span className="hidden sm:inline text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-primary-light">
             Ph.D. Student
           </span>
         </Link>
