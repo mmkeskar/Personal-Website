@@ -14,7 +14,7 @@ const navItems = [
 ];
 
 const socialLinks = {
-  github: 'https://github.com/mkeskar', // Placeholders that can be customized
+  github: 'https://github.com/mmkeskar',
   linkedin: 'https://linkedin.com/in/maitrayee-keskar',
   email: 'mailto:mkeskar@ucmerced.edu',
 };

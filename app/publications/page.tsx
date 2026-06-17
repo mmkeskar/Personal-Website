@@ -5,79 +5,86 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, BookOpen, ExternalLink, RotateCcw } from 'lucide-react';
 import DocumentPreview, { Publication } from '@/components/DocumentPreview';
 
-// Detailed mock publications database
+// Real academic publications database
 const publicationsData: (Publication & { id: string })[] = [
   {
     id: 'itsc-2026',
-    title: 'Work Zone Intelligence: Speed Regulation and Modeling in Autonomous Transit',
-    authors: 'Maitrayee Keskar, Ross Greer, Mohan Trivedi',
-    venue: 'IEEE Intelligent Transportation Systems Conference (ITSC)',
+    title: 'Vision-Language Work Zone Intelligence for Safety-Critical Speed Regulation of Mixed-Autonomy Vehicles in Dynamic Environments',
+    authors: 'Martinez-Sanchez, A., Ng, K., Maia, W., Fleig, L., Keskar, M., Maquiling, E., Tandon, Y., Roy, P., Trivedi, M., Greer, R.',
+    venue: 'IEEE International Conference on Intelligent Transportation Systems (ITSC)',
     year: 2026,
-    abstract: 'This paper presents a model-based speed regulation approach for autonomous vehicles navigating active work zones. By combining local vision features with a custom regulatory control framework, we model driver intent and coordinate optimal deceleration schedules under high-complexity construction environments.',
+    abstract: 'This paper presents a vision-language framework for mixed-autonomy speed regulation in safety-critical dynamic work zone environments. We coordinate behavioral intent models with real-time warning interpretation to compute optimal speed limits under active construction events. Accepted for publication.',
     tags: ['Robotics', 'Computer Vision'],
   },
   {
-    id: 'nhtsa-vlm-2026',
-    title: 'Driving Scene Assessment: Vision/Language Asset Representation Frameworks',
-    authors: 'Maitrayee Keskar, Ross Greer, Mohan Trivedi',
-    venue: 'NHTSA International Technical Conference on the Enhanced Safety of Vehicles (ESV)',
+    id: 'esv-vlm-2026',
+    title: 'Vision and Language: Novel Representations and Artificial intelligence for Driving Scene Safety Assessment and Autonomous Vehicle Planning',
+    authors: 'Greer, R., Keskar, M., Martinez-Sanchez, A., Roy, P., Shriram, S., Trivedi, M.',
+    venue: 'Proceedings of the 28th International Technical Conference on the Enhanced Safety of Vehicles (ESV), National Highway Traffic Safety Administration (NHTSA)',
     year: 2026,
-    abstract: 'An investigation into joint Vision-Language Models (VLMs) to encode asset states (such as construction signs, barriers, and dynamic traffic components) in complex road layouts. We demonstrate high-fidelity multimodal representations mapping directly to automated safety assessments.',
+    abstract: 'This paper explores visual-language modeling approaches for driving scene safety assessment. We combine geometric representations of traffic assets with semantic scene context to enhance autonomous planning pipelines.',
     tags: ['Computer Vision', 'Big Data'],
+    pdfUrl: 'https://arxiv.org/pdf/2602.07680',
   },
   {
-    id: 'nhtsa-driver-2026',
-    title: 'Multimodal Intelligent Vehicles: Inside/Outside Driver Attention Coordination Systems',
-    authors: 'Maitrayee Keskar, Ross Greer, Mohan Trivedi',
-    venue: 'NHTSA International Technical Conference on the Enhanced Safety of Vehicles (ESV)',
+    id: 'esv-multimodal-2026',
+    title: 'Looking and Listening Inside and Outside: Multimodal Artificial Intelligence Systems for Driver Safety Assessment and Intelligent Vehicle Decision-Making',
+    authors: 'Greer, R., Fleig, L., Keskar, M., Maquiling, E., Tapia Lopez, G., Martinez-Sanchez, A., Roy, P., Rattigan, J., Sur, M., Vidrio, M., Marcotte, T., Trivedi, M.',
+    venue: 'Proceedings of the 28th ESV Conference (NHTSA)',
     year: 2026,
-    abstract: 'This study introduces a coordinated system tracking inside-vehicle driver distraction alongside outside-vehicle environmental hazards. We use temporal multi-modal networks to model eye-gaze distribution and link occupant state directly to local trajectory paths.',
+    abstract: 'We introduce a multi-modal perception framework coordinating cabin occupant gaze tracking with external scene metrics. The system links inside driver attention maps directly to trajectory safety computations.',
     tags: ['Robotics', 'Computer Vision'],
+    pdfUrl: 'https://arxiv.org/pdf/2602.07668',
   },
   {
-    id: 'nhtsa-cnn-2026',
-    title: 'Cascaded CNN Vehicle Lighting: Localization and Context Association Suites',
-    authors: 'Maitrayee Keskar, Mohan Trivedi',
-    venue: 'NHTSA International Technical Conference on the Enhanced Safety of Vehicles (ESV)',
+    id: 'esv-cnn-2026',
+    title: 'Robust Detection, Association, and Localization of Vehicle Lights: A Context-Based Cascaded CNN Approach and Evaluations',
+    authors: 'Gopalkrishnan, A., Greer, R., Keskar, M., Trivedi, M.',
+    venue: 'Proceedings of the 28th ESV Conference (NHTSA)',
     year: 2026,
-    abstract: 'A cascaded Convolutional Neural Network pipeline engineered for the rapid detection, localization, and classification of vehicle lighting states (brake lights, indicators) in low-light, high-contrast urban environments.',
+    abstract: 'We present a context-based cascaded CNN framework designed to robustly detect, associate, and localize vehicle lighting patterns (such as braking or signaling) under dynamic atmospheric conditions.',
     tags: ['Computer Vision'],
+    pdfUrl: 'https://arxiv.org/pdf/2307.14571',
   },
   {
     id: 'iros-2026',
-    title: 'Self-Attention Policy Gradients for Distributed Non-linear Game Spaces in Multi-Agent Environments',
-    authors: 'Maitrayee Keskar, Parinaz Naghizadeh, Nikolay Atanasov',
-    venue: 'IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)',
-    year: 2026,
-    abstract: 'We present a decentralized policy gradient formulation utilizing self-attention layers to represent multi-agent interactions. The approach bounds sample complexity and ensures convergent actions in non-linear distributed control scenarios without global parameter syncing.',
+    title: 'Policy Gradient with Self-Attention for Model-Free Distributed Nonlinear Multi-Agent Games',
+    authors: 'Sebastián, E., Keskar, M., Iqbal, E., Montijano, E., Sagüés, C., & Atanasov, N.',
+    venue: 'arXiv preprint arXiv:2509.18371 (Submitted to IROS 2026)',
+    year: 2025,
+    abstract: 'This paper presents a distributed model-free policy gradient algorithm leveraging self-attention to solve nonlinear multi-agent games. We bound sample-complexity scaling and demonstrate convergence limits across cooperative scenarios.',
     tags: ['MARL', 'Robotics'],
+    pdfUrl: 'https://arxiv.org/pdf/2509.18371',
   },
   {
     id: 'ral-2025',
-    title: 'Lights as Points: Anchor-Free Keypoint Detection for Joint Vehicle State Estimation',
-    authors: 'Maitrayee Keskar, Mohan Trivedi',
-    venue: 'IEEE Robotics and Automation Letters (RA-L)',
+    title: 'Lights as points: Learning to look at vehicle substructures with anchor-free object detection',
+    authors: 'Keskar, M., Greer, R., Gopalkrishnan, A., Deo, N., & Trivedi, M.',
+    venue: 'IEEE Robotics and Automation Letters (Presented at IEEE CASE 2025)',
     year: 2025,
-    abstract: 'Our first-author paper detailing an anchor-free keypoint detection framework. We treat vehicle lights as dynamic points and design customized keypoint loss topologies in PyTorch to achieve a 78.2% AP score on the ApolloCar3D dataset without requiring bounding boxes.',
+    abstract: 'We present an anchor-free keypoint detection architecture that localizes vehicle light sources as points. We design custom loss functions in PyTorch, yielding a 78.2% AP score on the ApolloCar3D dataset.',
     tags: ['Computer Vision', 'Robotics'],
+    pdfUrl: 'https://ieeexplore.ieee.org/abstract/document/10910165',
   },
   {
     id: 'pr-letters-2024',
-    title: 'Vehicle Light Dataset Complexities: Camera Metric Evaluation Pipelines',
-    authors: 'Maitrayee Keskar, Mohan Trivedi',
-    venue: 'Pattern Recognition Letters',
+    title: 'Patterns of vehicle lights: Addressing complexities of camera-based vehicle light datasets and metrics',
+    authors: 'Greer, R., Gopalkrishnan, A., Keskar, M., & Trivedi, M. M.',
+    venue: 'Pattern Recognition Letters, 178, 209-215',
     year: 2024,
-    abstract: 'We evaluate the challenges of camera metric variability in automated vehicles. This paper establishes key performance baselines under diverse focal lengths, noise distributions, and lighting thresholds across public traffic datasets.',
+    abstract: 'We evaluate camera metric complexity and sensor limitations in vehicle lighting datasets. This study establishes robust baselines for classification performance under variable environments.',
     tags: ['Computer Vision', 'Big Data'],
+    pdfUrl: 'https://www.sciencedirect.com/science/article/pii/S0167865524000047',
   },
   {
     id: 'iv-2022',
-    title: 'Integrated Vehicle Internal Occupant Detection and Spatial Landmark Analysis',
-    authors: 'Maitrayee Keskar, Mohan Trivedi',
-    venue: 'IEEE Intelligent Vehicles Symposium (IV) Workshop',
+    title: 'A Center-Based Integrated Vehicle Internal and Landmarks Detector',
+    authors: 'Maitrayee Keskar, Nachiket Deo, Ross Greer, and Mohan M. Trivedi',
+    venue: 'Presentation at IEEE IV ITSIVUE Workshop',
     year: 2022,
-    abstract: 'A workshop oral presentation mapping interior occupant configurations using lightweight spatial convolutional networks, ensuring passive safety tracking in passenger cabins.',
+    abstract: 'A workshop oral presentation proposing a unified center-based network for passenger cabin occupant detection and keypoint tracking, improving passive safety systems.',
     tags: ['Robotics', 'Computer Vision'],
+    pdfUrl: 'https://drive.google.com/file/d/15xwM-FQClW42u6YsHrX7-43sE-r6J4YU/view?usp=sharing',
   },
 ];
 
@@ -239,7 +246,14 @@ export default function Publications() {
 
                 {/* Authors */}
                 <p className="font-sans text-sm text-foreground/80 font-medium">
-                  {pub.authors}
+                  {/* Highlight Keskar name in author list */}
+                  {pub.authors.split(/(Keskar, M\.|Maitrayee Keskar)/).map((part, index) => 
+                    part === 'Keskar, M.' || part === 'Maitrayee Keskar' ? (
+                      <strong key={index} className="text-accent">{part}</strong>
+                    ) : (
+                      part
+                    )
+                  )}
                 </p>
               </div>
 
@@ -260,16 +274,20 @@ export default function Publications() {
                   >
                     <BookOpen size={14} /> Preview Abstract
                   </button>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert("In production, this button redirects to the publisher link (e.g. IEEE Xplore, arXiv, ACM).");
-                    }}
-                    className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-sm shadow-accent/10"
-                  >
-                    Publisher <ExternalLink size={14} />
-                  </a>
+                  {pub.pdfUrl ? (
+                    <a
+                      href={pub.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold bg-accent text-white rounded-xl hover:bg-accent-light transition-all shadow-sm shadow-accent/10"
+                    >
+                      {pub.pdfUrl.includes('drive.google.com') ? 'Presentation' : 'PDF Paper'} <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <span className="text-xs font-bold text-text-muted px-4 py-2.5 bg-slate-50 border border-border-color rounded-xl cursor-default">
+                      PDF Accepted
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.div>

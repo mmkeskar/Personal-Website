@@ -128,34 +128,27 @@ export default function DocumentPreview({ publication, onClose }: DocumentPrevie
 
             {/* Footer Actions */}
             <div className="p-6 border-t border-border-color bg-slate-50/50 flex flex-wrap items-center justify-end gap-3 font-sans">
-              <a
-                href={publication.pdfUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold border border-border-color rounded-xl hover:bg-slate-50 hover:text-accent transition-colors bg-white text-primary-light"
-                onClick={(e) => {
-                  if (!publication.pdfUrl) {
-                    e.preventDefault();
-                    alert("This is a demo preview. In production, this links to the actual paper PDF.");
-                  }
-                }}
-              >
-                <Download size={16} /> Download Paper
-              </a>
-              <a
-                href={publication.codeUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-colors shadow-sm shadow-accent/10"
-                onClick={(e) => {
-                  if (!publication.codeUrl) {
-                    e.preventDefault();
-                    alert("This is a demo preview. In production, this links to the repository code.");
-                  }
-                }}
-              >
-                <ExternalLink size={16} /> Code Repository
-              </a>
+              {publication.pdfUrl && (
+                <a
+                  href={publication.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold border border-border-color rounded-xl hover:bg-slate-50 hover:text-accent transition-colors bg-white text-primary-light"
+                >
+                  <Download size={16} />{' '}
+                  {publication.pdfUrl.includes('drive.google.com') ? 'View Presentation' : 'Download Paper'}
+                </a>
+              )}
+              {publication.codeUrl && (
+                <a
+                  href={publication.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light transition-colors shadow-sm shadow-accent/10"
+                >
+                  <ExternalLink size={16} /> Code Repository
+                </a>
+              )}
             </div>
           </motion.div>
         </div>

@@ -24,7 +24,7 @@ export default function Footer() {
         {/* Social Icons */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/mkeskar"
+            href="https://github.com/mmkeskar"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-full hover:bg-accent/10 text-text-muted hover:text-accent transition-colors"
