@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail } from 'lucide-react';
+import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
 
 export default function Home() {
   const containerVariants = {
@@ -229,20 +229,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Panel */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 border border-accent/15 rounded-2xl bg-accent/[0.02] glass">
-        <div>
-          <h2 className="font-serif text-xl md:text-2xl font-bold text-primary">Let&apos;s Collaborate</h2>
-          <p className="font-sans text-sm md:text-base text-text-muted mt-1">
-            Interested in multi-agent reinforcement learning, computer vision, or dynamic robot systems?
-          </p>
+      {/* Connect & Collaborate Grid */}
+      <section className="flex flex-col gap-6">
+        <motion.h2 variants={itemVariants} className="section-title">
+          Connect &amp; Collaborate
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
+          {/* LinkedIn Card */}
+          <motion.a
+            href="https://www.linkedin.com/in/maitrayee-keskar-0a426a19a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={itemVariants}
+            className="card border border-border-color bg-white hover:border-accent/30 p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-[#0077B5]/5 border border-[#0077B5]/15 text-[#0077B5] group-hover:bg-[#0077B5]/10 transition-colors">
+                <Linkedin size={20} />
+              </div>
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-primary">LinkedIn</h3>
+              <p className="text-xs text-text-muted mt-1 font-semibold">maitrayee-keskar-0a426a19a</p>
+              <p className="text-sm text-foreground/80 mt-2 leading-relaxed">
+                Connect for research collaborations, academic networking, or professional opportunities.
+              </p>
+            </div>
+          </motion.a>
+
+          {/* GitHub Card */}
+          <motion.a
+            href="https://github.com/mmkeskar"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={itemVariants}
+            className="card border border-border-color bg-white hover:border-accent/30 p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-slate-900/5 border border-slate-900/15 text-slate-900 group-hover:bg-slate-900/10 transition-colors">
+                <Github size={20} />
+              </div>
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-primary">GitHub</h3>
+              <p className="text-xs text-text-muted mt-1 font-semibold">@mmkeskar</p>
+              <p className="text-sm text-foreground/80 mt-2 leading-relaxed">
+                Browse codebase repositories, deep learning implementations, and MARL experiments.
+              </p>
+            </div>
+          </motion.a>
+
+          {/* Email Card */}
+          <motion.a
+            href="mailto:mkeskar@ucmerced.edu"
+            variants={itemVariants}
+            className="card border border-border-color bg-white hover:border-accent/30 p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-accent/5 border border-accent/15 text-accent group-hover:bg-accent/10 transition-colors">
+                <Mail size={20} />
+              </div>
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+            </div>
+            <div>
+              <h3 className="font-serif text-lg font-bold text-primary">Direct Email</h3>
+              <p className="text-xs text-text-muted mt-1 font-semibold">mkeskar@ucmerced.edu</p>
+              <p className="text-sm text-foreground/80 mt-2 leading-relaxed">
+                Inquire about research collaborations, lab operations, or request papers.
+              </p>
+            </div>
+          </motion.a>
         </div>
-        <a
-          href="mailto:mkeskar@ucmerced.edu"
-          className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-accent text-white rounded-xl hover:bg-accent-light hover:-translate-y-0.5 transition-all shadow-md shadow-accent/10 shrink-0 font-sans"
-        >
-          <Mail size={16} /> Contact Email
-        </a>
       </section>
     </motion.div>
   );
