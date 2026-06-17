@@ -213,7 +213,7 @@ export default function SkillsMatrix() {
     <div className="flex flex-col gap-8">
       {/* Category Tabs & Reset */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border-color pb-4">
-        <div className="flex gap-2 bg-slate-100 p-1.5 rounded-2xl glass">
+        <div className="flex gap-2 bg-[#1a1a2e] p-1.5 rounded-2xl glass">
           {(['all', 'languages', 'ai', 'infra'] as const).map((tab) => (
             <button
               key={tab}
@@ -223,8 +223,8 @@ export default function SkillsMatrix() {
               }}
               className={`px-4 py-2 text-xs md:text-sm font-bold rounded-xl transition-all capitalize focus:outline-none font-sans ${
                 activeTab === tab
-                  ? 'bg-accent text-white shadow-sm'
-                  : 'text-text-muted hover:text-accent hover:bg-white'
+                  ? 'bg-accent text-primary shadow-sm'
+                  : 'text-[#b8b0a8] hover:text-[#f0eae4] hover:bg-[#2a2844]'
               }`}
             >
               {tab === 'all' ? 'All Skills' : tab === 'ai' ? 'AI & Frameworks' : tab === 'infra' ? 'Infrastructure' : tab}
@@ -235,7 +235,7 @@ export default function SkillsMatrix() {
         {selectedSkill && (
           <button
             onClick={resetSelection}
-            className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold rounded-xl border border-border-color text-text-muted hover:text-accent hover:border-accent transition-all bg-white font-sans"
+            className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold rounded-xl border border-border-color text-[#b8b0a8] hover:text-[#f0eae4] hover:border-accent transition-all bg-[#232136] font-sans"
           >
             <RotateCcw size={12} /> Reset Links
           </button>
@@ -249,15 +249,15 @@ export default function SkillsMatrix() {
           {filteredSkills.map((skill) => {
             const status = getCardStatus(skill.id, skill.relatedIds);
             
-            const baseStyles = "card flex flex-col justify-between cursor-pointer border h-[115px] p-5 bg-white";
+            const baseStyles = "card flex flex-col justify-between cursor-pointer border h-[115px] p-5 bg-[#232136]";
             let stateStyles = "border-border-color hover:border-accent/30";
             
             if (status === 'selected') {
-              stateStyles = "border-accent bg-accent/[0.02] ring-2 ring-accent/10 scale-[1.01] shadow-md z-10";
+              stateStyles = "border-accent bg-[#2a2844] ring-2 ring-accent/20 scale-[1.01] shadow-md z-10";
             } else if (status === 'related') {
-              stateStyles = "border-accent/40 bg-accent/[0.01] scale-[1.005] shadow-sm";
+              stateStyles = "border-accent/40 bg-[#2a2844]/50 scale-[1.005] shadow-sm";
             } else if (status === 'dimmed') {
-              stateStyles = "opacity-35 scale-[0.98] blur-[0.2px] border-border-color/50";
+              stateStyles = "opacity-30 scale-[0.98] blur-[0.2px] border-border-color/30";
             }
 
             return (
@@ -272,7 +272,7 @@ export default function SkillsMatrix() {
                   <span className="font-serif text-sm md:text-base font-bold text-primary">
                     {skill.label}
                   </span>
-                  <div className="text-text-muted">
+                  <div className="text-[#8a8279]">
                     {skill.category === 'languages' && <Terminal size={14} />}
                     {skill.category === 'ai' && <Cpu size={14} />}
                     {skill.category === 'infra' && <Database size={14} />}
@@ -290,7 +290,17 @@ export default function SkillsMatrix() {
                   </span>
                 )}
                 {status === 'normal' && (
-                  <span className="text-[9px] font-sans text-text-muted uppercase tracking-wider font-bold">
+                  <span
+                    className="text-[9px] font-sans uppercase tracking-wider font-bold"
+                    style={{
+                      color:
+                        skill.category === 'languages'
+                          ? '#b8b0a8'
+                          : skill.category === 'ai'
+                          ? '#7C5CFC'
+                          : '#F4A940',
+                    }}
+                  >
                     {skill.category === 'languages' ? 'Language' : skill.category === 'ai' ? 'Framework' : 'Infra'}
                   </span>
                 )}
@@ -301,7 +311,7 @@ export default function SkillsMatrix() {
 
         {/* Selected Skill Detail Panel */}
         <div className="lg:col-span-1 h-full font-sans">
-          <div className="card border border-border-color bg-white p-6 sticky top-28 min-h-[320px] flex flex-col justify-between gap-6">
+          <div className="card border border-border-color bg-[#232136] p-6 sticky top-28 min-h-[320px] flex flex-col justify-between gap-6">
             {selectedSkill ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -310,7 +320,17 @@ export default function SkillsMatrix() {
                 className="flex flex-col gap-4"
               >
                 <div>
-                  <span className="text-xs font-bold tracking-wider text-accent uppercase">
+                  <span
+                    className="text-xs font-bold tracking-wider uppercase"
+                    style={{
+                      color:
+                        selectedSkill.category === 'languages'
+                          ? '#b8b0a8'
+                          : selectedSkill.category === 'ai'
+                          ? '#7C5CFC'
+                          : '#F4A940',
+                    }}
+                  >
                     {selectedSkill.category === 'languages'
                       ? 'Programming Language'
                       : selectedSkill.category === 'ai'
@@ -322,12 +342,12 @@ export default function SkillsMatrix() {
                   </h3>
                 </div>
 
-                <p className="text-sm md:text-base text-foreground/80 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-border-color italic">
+                <p className="text-sm md:text-base text-[#b8b0a8] leading-relaxed bg-[#1a1a2e] p-4 rounded-2xl border border-border-color italic">
                   {selectedSkill.description}
                 </p>
 
                 <div>
-                  <h4 className="text-xs font-bold tracking-wider text-text-muted uppercase mb-2">
+                  <h4 className="text-xs font-bold tracking-wider text-[#8a8279] uppercase mb-2">
                     Direct Node Links ({selectedSkill.relatedIds.length})
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
@@ -340,7 +360,7 @@ export default function SkillsMatrix() {
                             const found = skillsData.find((s) => s.id === relId);
                             if (found) setSelectedSkill(found);
                           }}
-                          className="px-2.5 py-1 rounded-xl bg-slate-50 text-foreground hover:bg-accent/10 hover:text-accent border border-border-color font-bold transition-all text-xs cursor-pointer flex items-center gap-1"
+                          className="px-2.5 py-1 rounded-xl bg-[#1a1a2e] text-[#b8b0a8] hover:bg-accent/15 hover:text-primary border border-border-color font-bold transition-all text-xs cursor-pointer flex items-center gap-1"
                         >
                           <LinkIcon size={10} className="text-accent" /> {relSkill.label}
                         </span>
@@ -350,13 +370,13 @@ export default function SkillsMatrix() {
                 </div>
               </motion.div>
             ) : (
-              <div className="flex flex-col items-center justify-center text-center py-12 text-text-muted gap-4 flex-1">
-                <div className="p-4 rounded-full bg-slate-50 border border-border-color text-text-muted">
+              <div className="flex flex-col items-center justify-center text-center py-12 text-[#8a8279] gap-4 flex-1">
+                <div className="p-4 rounded-full bg-[#1a1a2e] border border-border-color text-[#8a8279]">
                   <LinkIcon size={28} />
                 </div>
                 <div>
                   <h4 className="font-serif text-lg font-bold text-primary">Interactive Skill Graph</h4>
-                  <p className="text-sm text-text-muted mt-2 max-w-xs leading-relaxed">
+                  <p className="text-sm text-[#8a8279] mt-2 max-w-xs leading-relaxed">
                     Click any skill card in the grid to display detailed project connections and trace relationships.
                   </p>
                 </div>

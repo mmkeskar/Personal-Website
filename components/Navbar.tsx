@@ -36,9 +36,9 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'glass-nav shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container flex items-center justify-between">
         {/* Logo/Name */}
-        <Link href="/" className="font-serif text-xl font-bold tracking-tight text-primary hover:text-accent transition-all flex items-center gap-2">
+        <Link href="/" className="font-serif text-lg font-bold tracking-tight text-primary hover:text-accent transition-all flex items-center gap-2">
           <span>Maitrayee Keskar</span>
-          <span className="hidden sm:inline text-xs font-sans font-semibold px-2 py-0.5 rounded-full bg-accent/5 border border-accent/15 text-accent">
+          <span className="hidden sm:inline text-[10px] font-sans font-bold px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(124, 92, 252, 0.15)', color: '#c4b8fc', borderColor: 'rgba(124, 92, 252, 0.1)' }}>
             Ph.D. Student
           </span>
         </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className={`font-sans text-sm font-medium transition-colors relative py-1 ${isActive ? 'text-accent' : 'text-foreground/80 hover:text-accent'}`}
+                    className={`font-sans text-sm font-medium transition-colors relative py-1 ${isActive ? 'text-primary' : 'text-[#b8b0a8] hover:text-primary'}`}
                   >
                     {item.name}
                     {isActive && (
@@ -72,7 +72,7 @@ export default function Navbar() {
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/75 hover:text-accent transition-colors"
+              className="text-[#b8b0a8] hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <Github size={18} />
@@ -81,14 +81,14 @@ export default function Navbar() {
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/75 hover:text-accent transition-colors"
+              className="text-[#b8b0a8] hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a
               href={socialLinks.email}
-              className="text-foreground/75 hover:text-accent transition-colors"
+              className="text-[#b8b0a8] hover:text-accent transition-colors"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -99,7 +99,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground hover:text-accent focus:outline-none p-1"
+          className="md:hidden text-primary hover:text-accent focus:outline-none p-1"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -118,7 +118,11 @@ export default function Navbar() {
                     <Link
                       href={item.path}
                       onClick={() => setIsOpen(false)}
-                      className={`block font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'hover:bg-accent/5 hover:text-accent'}`}
+                      className="block font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors"
+                      style={{
+                        backgroundColor: isActive ? 'rgba(124, 92, 252, 0.12)' : 'transparent',
+                        color: isActive ? '#f0eae4' : '#b8b0a8'
+                      }}
                     >
                       {item.name}
                     </Link>
@@ -134,7 +138,7 @@ export default function Navbar() {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/75 hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Github size={20} /> Github
               </a>
@@ -142,13 +146,13 @@ export default function Navbar() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground/75 hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Linkedin size={20} /> LinkedIn
               </a>
               <a
                 href={socialLinks.email}
-                className="text-foreground/75 hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Mail size={20} /> Contact
               </a>

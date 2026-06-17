@@ -9,14 +9,14 @@ export default function Footer() {
         {/* Affiliation Info */}
         <div className="text-center md:text-left">
           <p className="font-sans text-sm font-bold text-primary">Maitrayee Keskar</p>
-          <p className="font-sans text-xs text-text-muted mt-1">
+          <p className="font-sans text-xs text-[#8a8279] mt-1">
             Ph.D. Student in EECS @ University of California, Merced
           </p>
         </div>
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="font-sans text-xs text-text-muted">
+          <p className="font-sans text-xs text-[#8a8279]">
             &copy; {currentYear} Maitrayee Keskar. All rights reserved.
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function Footer() {
             href="https://github.com/mmkeskar"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-accent/10 text-text-muted hover:text-accent transition-colors"
+            className="p-2 rounded-full hover:bg-accent/10 text-[#b8b0a8] hover:text-accent transition-colors"
             aria-label="GitHub"
           >
             <Github size={18} />
@@ -36,14 +36,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/maitrayee-keskar-0a426a19a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full hover:bg-accent/10 text-text-muted hover:text-accent transition-colors"
+            className="p-2 rounded-full hover:bg-accent/10 text-[#b8b0a8] hover:text-accent transition-colors"
             aria-label="LinkedIn"
           >
             <Linkedin size={18} />
           </a>
           <a
             href="mailto:mkeskar@ucmerced.edu"
-            className="p-2 rounded-full hover:bg-accent/10 text-text-muted hover:text-accent transition-colors"
+            className="p-2 rounded-full hover:bg-accent/10 text-[#b8b0a8] hover:text-accent transition-colors"
             aria-label="Email"
           >
             <Mail size={18} />
