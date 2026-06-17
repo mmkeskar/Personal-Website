@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, GraduationCap } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -40,6 +40,15 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <Linkedin size={18} />
+          </a>
+          <a
+            href="https://scholar.google.com/citations?hl=en&authuser=1&user=q3UdMrQAAAAJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full hover:bg-accent/10 text-text-muted hover:text-accent transition-colors"
+            aria-label="Google Scholar"
+          >
+            <GraduationCap size={18} />
           </a>
           <a
             href="mailto:mkeskar@ucmerced.edu"

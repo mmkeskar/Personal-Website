@@ -54,7 +54,7 @@ const artworkData: Artwork[] = [
   {
     id: 'winding_road',
     title: 'Winding Path to the Peak',
-    type: 'Acrylic on Canvas',
+    type: 'Oil on Canvas',
     src: '/Personal-Website/artwork/winding_road.jpeg',
     description: 'Landscape painting of a serpentine path climbing green hills toward pink mountain peaks. Features a self-portrait silhouette looking out, signed Maitrayee.',
     cardStyle: 'rotate-[-1deg]',
@@ -81,18 +81,18 @@ const artworkData: Artwork[] = [
   {
     id: 'paisley_mandala',
     title: 'Paisley Mandala',
-    type: 'Acrylic & Ink on Canvas',
+    type: 'Oil & Ink on Canvas',
     src: '/Personal-Website/artwork/paisley_mandala.jpeg',
-    description: 'A vibrant, colorful acrylic painting blending traditional Indian paisley motifs with a structured geometric mandala design.',
+    description: 'A vibrant, colorful oil painting blending traditional Indian paisley motifs with a structured geometric mandala design.',
     cardStyle: 'rotate-[0.8deg]',
     tape: <div className="absolute -top-3 right-6 w-16 h-5 washi-tape transform rotate-3" />
   },
   {
     id: 'pink_lilies',
     title: 'Pink Lilies',
-    type: 'Acrylic on Canvas',
+    type: 'Oil on Canvas',
     src: '/Personal-Website/artwork/pink_lilies.jpeg',
-    description: 'An elegant acrylic floral painting depicting bright pink lilies in full bloom on a soft, textured background.',
+    description: 'An elegant oil floral painting depicting bright pink lilies in full bloom on a soft, textured background.',
     cardStyle: 'rotate-[-2.2deg]',
     tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
   },

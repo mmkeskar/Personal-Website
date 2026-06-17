@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
+import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
 
 
 // Organic hand-drawn SVG dividers
@@ -108,6 +108,14 @@ export default function Home() {
               <Linkedin size={16} /> linkedin.com/in/maitrayee-keskar
             </a>
             <a
+              href="https://scholar.google.com/citations?hl=en&authuser=1&user=q3UdMrQAAAAJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 text-text-muted hover:text-accent transition-colors"
+            >
+              <GraduationCap size={16} /> Google Scholar
+            </a>
+            <a
               href="mailto:mkeskar@ucmerced.edu"
               className="flex items-center gap-2.5 text-text-muted hover:text-accent transition-colors"
             >
@@ -148,14 +156,24 @@ export default function Home() {
                 href="/research"
                 className="btn-primary flex items-center gap-2 font-semibold"
               >
-                Explore Research <ChevronRight size={16} />
+                Research &amp; Publications <ChevronRight size={16} />
               </Link>
-              <Link
-                href="/publications"
+              <a
+                href="/Personal-Website/CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary flex items-center gap-2 font-semibold"
               >
-                Publications Registry
-              </Link>
+                Curriculum Vitae (CV) <ExternalLink size={16} />
+              </a>
+              <a
+                href="https://scholar.google.com/citations?hl=en&authuser=1&user=q3UdMrQAAAAJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary flex items-center gap-2 font-semibold"
+              >
+                Google Scholar <GraduationCap size={16} />
+              </a>
             </div>
           </section>
 

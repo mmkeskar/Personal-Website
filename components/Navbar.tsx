@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, GraduationCap } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'Research', path: '/research' },
+  { name: 'Research & Publications', path: '/research' },
   { name: 'Experience', path: '/experience' },
-  { name: 'Publications', path: '/publications' },
   { name: 'Skills', path: '/skills' },
   { name: 'Hobbies', path: '/hobbies' },
 ];
@@ -18,6 +17,7 @@ const socialLinks = {
   github: 'https://github.com/mmkeskar',
   linkedin: 'https://www.linkedin.com/in/maitrayee-keskar-0a426a19a/',
   email: 'mailto:mkeskar@ucmerced.edu',
+  scholar: 'https://scholar.google.com/citations?hl=en&authuser=1&user=q3UdMrQAAAAJ',
 };
 
 export default function Navbar() {
@@ -88,6 +88,15 @@ export default function Navbar() {
               <Linkedin size={18} />
             </a>
             <a
+              href={socialLinks.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-accent transition-colors"
+              aria-label="Google Scholar"
+            >
+              <GraduationCap size={18} />
+            </a>
+            <a
               href={socialLinks.email}
               className="text-text-muted hover:text-accent transition-colors"
               aria-label="Email"
@@ -134,7 +143,7 @@ export default function Navbar() {
 
             <hr className="border-border-color" />
 
-            <div className="flex items-center justify-around py-2">
+            <div className="flex flex-wrap items-center justify-around gap-y-3 py-2">
               <a
                 href={socialLinks.github}
                 target="_blank"
@@ -150,6 +159,14 @@ export default function Navbar() {
                 className="text-text-muted hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Linkedin size={20} /> LinkedIn
+              </a>
+              <a
+                href={socialLinks.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-muted hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+              >
+                <GraduationCap size={20} /> Scholar
               </a>
               <a
                 href={socialLinks.email}
