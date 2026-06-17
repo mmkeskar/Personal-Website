@@ -95,12 +95,24 @@ export default function Experience() {
 
       {/* Experience Cards (Timeline layout) */}
       <section className="timeline-track pl-8 md:pl-12 flex flex-col gap-10 py-4 relative z-10">
-        {experienceData.map((job) => (
+        {[
+          {
+            ...experienceData[0],
+            cardStyle: 'card-graph rotate-[1.2deg]',
+            tape: <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-6" />
+          },
+          {
+            ...experienceData[1],
+            cardStyle: 'card-postit rotate-[-1.5deg]',
+            tape: <div className="absolute top-2 left-1/2 -translate-x-1/2 pushpin-accent" />
+          }
+        ].map((job) => (
           <motion.div
             key={job.role}
             variants={itemVariants}
-            className="relative card card-industry p-6 md:p-8 flex flex-col gap-4"
+            className={`relative card ${job.cardStyle} p-6 md:p-8 hover:rotate-0 hover:scale-[1.01] hover:shadow-md transition-all duration-200 flex flex-col gap-4 pt-10`}
           >
+            {job.tape}
             {/* Timeline Node Icon */}
             <div className="timeline-node -left-[48px] md:-left-[61px]">
               <Briefcase size={14} />
@@ -109,7 +121,7 @@ export default function Experience() {
             {/* Header info */}
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border-color pb-4 font-sans">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent" style={{ color: '#F4A940', borderColor: 'rgba(244, 169, 64, 0.2)', backgroundColor: 'rgba(244, 169, 64, 0.15)' }}>
+                <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent animate-pulse" style={{ color: '#F4A940', borderColor: 'rgba(244, 169, 64, 0.2)', backgroundColor: 'rgba(244, 169, 64, 0.15)' }}>
                   <Building size={20} />
                 </div>
                 <div>
@@ -137,7 +149,7 @@ export default function Experience() {
               <h3 className="font-serif text-sm font-bold tracking-wider text-text-muted uppercase mb-1">
                 Role &amp; Impact
               </h3>
-              <p className="font-sans text-sm md:text-base text-foreground leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#f5f3ef]/50">
+              <p className="font-sans text-sm md:text-base text-foreground leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#f5f3ef]/30">
                 {job.highlights}
               </p>
             </div>
@@ -158,8 +170,9 @@ export default function Experience() {
       <section className="mt-8 relative z-10">
         <motion.div
           variants={itemVariants}
-          className="card border border-border-color bg-white glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="card card-manila rotate-[-0.5deg] hover:rotate-0 hover:scale-[1.01] hover:shadow-md transition-all duration-200 p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6 relative pt-10"
         >
+          <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-3" />
           <div>
             <h3 className="font-serif text-xl font-bold text-primary">Interactive Skill Matrix</h3>
             <p className="font-sans text-sm text-text-muted mt-1">

@@ -181,6 +181,20 @@ const skillsData: Skill[] = [
   },
 ];
 
+const getPaperStyle = (index: number) => {
+  const styles = [
+    { paper: 'card-manila', tilt: 'rotate-[-1deg]' },
+    { paper: 'card-graph', tilt: 'rotate-[1deg]' },
+    { paper: 'card-ruled', tilt: 'rotate-[-1.5deg]' },
+    { paper: 'card-postit', tilt: 'rotate-[1.2deg]' },
+    { paper: 'card-manila', tilt: 'rotate-[1.5deg]' },
+    { paper: 'card-graph', tilt: 'rotate-[-1.2deg]' },
+    { paper: 'card-ruled', tilt: 'rotate-[0.8deg]' },
+    { paper: 'card-postit', tilt: 'rotate-[-1deg]' },
+  ];
+  return styles[index % styles.length];
+};
+
 export default function SkillsMatrix() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [activeTab, setActiveTab] = useState<'all' | 'languages' | 'ai' | 'infra'>('all');
@@ -246,19 +260,23 @@ export default function SkillsMatrix() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* Skills Cards Grid */}
         <div className="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {filteredSkills.map((skill) => {
+          {filteredSkills.map((skill, index) => {
+            const { paper, tilt } = getPaperStyle(index);
             const status = getCardStatus(skill.id, skill.relatedIds);
             
-            const baseStyles = "card flex flex-col justify-between cursor-pointer border h-[115px] p-5 bg-white";
-            let stateStyles = "border-border-color hover:border-accent/30";
+            const baseStyles = `card flex flex-col justify-between cursor-pointer border h-[115px] p-5 pt-8 relative ${paper} ${tilt}`;
+            let stateStyles = "border-border-color hover:border-accent/30 hover:rotate-0 hover:scale-[1.03] transition-all";
             
             if (status === 'selected') {
-              stateStyles = "border-accent bg-[#f5f3ef] ring-2 ring-accent/20 scale-[1.01] shadow-md z-10";
+              stateStyles = "border-accent ring-2 ring-accent/20 scale-[1.03] shadow-md z-20 hover:rotate-0";
             } else if (status === 'related') {
-              stateStyles = "border-accent/40 bg-[#f5f3ef]/50 scale-[1.005] shadow-sm";
+              stateStyles = "border-accent/40 scale-[1.01] shadow-sm z-10 hover:rotate-0 ring-1 ring-accent/10";
             } else if (status === 'dimmed') {
-              stateStyles = "opacity-30 scale-[0.98] blur-[0.2px] border-border-color/30";
+              stateStyles = "opacity-25 scale-[0.97] blur-[0.2px] border-border-color/20 pointer-events-none";
             }
+
+            const showTape = index % 7 === 1;
+            const showPin = index % 7 === 4;
 
             return (
               <motion.div
@@ -268,6 +286,9 @@ export default function SkillsMatrix() {
                 className={`${baseStyles} ${stateStyles}`}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
+                {showTape && <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-10 h-3 bg-[#0f9f90]/20 border border-[#0f9f90]/15 backdrop-blur-[1px] transform -rotate-2 pointer-events-none z-10" />}
+                {showPin && <div className="absolute -top-1 left-1/2 -translate-x-1/2 scale-75 pointer-events-none z-10"><div className="pushpin-accent" /></div>}
+                
                 <div className="flex items-start justify-between">
                   <span className="font-serif text-sm md:text-base font-bold text-primary">
                     {skill.label}
@@ -311,7 +332,8 @@ export default function SkillsMatrix() {
 
         {/* Selected Skill Detail Panel */}
         <div className="lg:col-span-1 h-full font-sans">
-          <div className="card border border-border-color bg-white p-6 sticky top-28 min-h-[320px] flex flex-col justify-between gap-6">
+          <div className="card card-manila rotate-[1deg] hover:rotate-0 transition-all duration-300 p-6 sticky top-28 min-h-[320px] flex flex-col justify-between gap-6 pt-10 relative">
+            <div className="absolute -top-2 left-6 w-20 washi-tape transform -rotate-3" />
             {selectedSkill ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -342,7 +364,8 @@ export default function SkillsMatrix() {
                   </h3>
                 </div>
 
-                <p className="text-sm md:text-base text-foreground leading-relaxed bg-[#f5f3ef] p-4 rounded-2xl border border-border-color italic">
+                <p className="text-sm md:text-base text-foreground leading-relaxed card-postit p-4 rounded-lg border italic shadow-sm relative pt-6 transform -rotate-1">
+                  <div className="absolute -top-1.5 left-4 w-8 h-3 bg-[#0f9f90]/15 border border-[#0f9f90]/10 transform -rotate-6" />
                   {selectedSkill.description}
                 </p>
 

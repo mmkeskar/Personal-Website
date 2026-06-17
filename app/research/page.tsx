@@ -112,12 +112,34 @@ export default function Research() {
 
       {/* Projects Timeline/Grid Layout */}
       <section className="timeline-track pl-8 md:pl-12 flex flex-col gap-10 py-4 relative z-10">
-        {projectsData.map((project) => (
+        {[
+          {
+            ...projectsData[0],
+            cardStyle: 'card-manila rotate-[-1deg]',
+            tape: <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-6" />
+          },
+          {
+            ...projectsData[1],
+            cardStyle: 'card-graph rotate-[1.2deg]',
+            tape: <div className="absolute top-2 left-1/2 -translate-x-1/2 pushpin-accent" />
+          },
+          {
+            ...projectsData[2],
+            cardStyle: 'card-ruled rotate-[-1.5deg]',
+            tape: <div className="absolute -top-2 right-6 w-16 washi-tape transform rotate-6" />
+          },
+          {
+            ...projectsData[3],
+            cardStyle: 'card-postit rotate-[1deg]',
+            tape: <div className="absolute top-2 left-1/2 -translate-x-1/2 pushpin-accent" />
+          }
+        ].map((project) => (
           <motion.div
             key={project.title}
             variants={itemVariants}
-            className={`relative card card-${project.area} p-6 md:p-8 flex flex-col gap-4`}
+            className={`relative card ${project.cardStyle} p-6 md:p-8 hover:rotate-0 hover:scale-[1.01] hover:shadow-md transition-all duration-200 flex flex-col gap-4 pt-10`}
           >
+            {project.tape}
             {/* Timeline Node Icon */}
             <div className="timeline-node -left-[48px] md:-left-[61px]">
               <Microscope size={14} />

@@ -4,19 +4,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
 
-// Floating dynamic translucent stickers
-const Sticker = ({ children, style, delay = 0 }: { children: React.ReactNode; style: React.CSSProperties; delay?: number }) => (
+// Falling dynamic translucent stickers
+const FallingSticker = ({ children, left, duration, delay }: { children: React.ReactNode; left: string; duration: number; delay: number }) => (
   <motion.div
-    style={style}
-    className="absolute pointer-events-none select-none z-0 opacity-15 hidden md:block"
-    animate={{
-      y: [0, -12, 0],
-      rotate: [0, 4, -4, 0],
+    style={{ left, top: '-60px' }}
+    className="fixed pointer-events-none select-none z-0 opacity-15"
+    initial={{ y: -60, rotate: 0 }}
+    animate={{ 
+      y: '108vh', 
+      rotate: 360 
     }}
     transition={{
-      duration: 8,
+      duration,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "linear",
       delay,
     }}
   >
@@ -24,56 +25,46 @@ const Sticker = ({ children, style, delay = 0 }: { children: React.ReactNode; st
   </motion.div>
 );
 
-const FloatingStickers = () => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-    {/* Bayes Theorem Sticker */}
-    <Sticker style={{ top: '12%', left: '4%' }} delay={0}>
-      <div className="bg-[#0f9f90]/5 border border-[#0f9f90]/15 rounded-xl px-3 py-2 font-mono text-[10px] text-[#0f9f90] shadow-sm transform rotate-3">
-        P(A|B) = P(B|A)P(A)/P(B)
-      </div>
-    </Sticker>
-
-    {/* Trajectory Planning Sticker */}
-    <Sticker style={{ top: '22%', right: '5%' }} delay={2}>
-      <div className="bg-[#0f9f90]/5 border border-[#0f9f90]/15 rounded-xl p-2.5 shadow-sm transform -rotate-6">
-        <svg width="60" height="40" viewBox="0 0 60 40" fill="none" stroke="#0f9f90" strokeWidth="1.5">
-          <circle cx="10" cy="35" r="3" fill="#0f9f90" />
-          <circle cx="30" cy="20" r="3" fill="#0f9f90" />
-          <circle cx="50" cy="8" r="3" fill="#0f9f90" />
-          <path d="M 10,35 C 20,35 20,20 30,20 C 40,20 40,8 50,8" strokeWidth="1.8" />
+const FallingStickersContainer = () => {
+  const stickersList = [
+    { el: <div className="font-serif text-2xl font-bold">∫</div>, left: '5%', duration: 18, delay: 0 },
+    { el: <div className="font-serif text-xl font-bold">P(A|B)</div>, left: '15%', duration: 24, delay: 3 },
+    { el: <div className="font-serif text-3xl font-bold">∑</div>, left: '28%', duration: 15, delay: 1 },
+    { el: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2L15 8L22 9L17 14L18 21L12 17L6 21L7 14L2 9L9 8L12 2Z" />
         </svg>
-      </div>
-    </Sticker>
-
-    {/* Hand-drawn Star Sticker */}
-    <Sticker style={{ top: '48%', left: '8%' }} delay={1.5}>
-      <div className="text-[#0f9f90] p-1">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-        </svg>
-      </div>
-    </Sticker>
-
-    {/* Matrix System Sticker */}
-    <Sticker style={{ top: '65%', right: '8%' }} delay={3}>
-      <div className="bg-[#0f9f90]/5 border border-[#0f9f90]/15 rounded-xl px-2.5 py-1.5 font-mono text-[9px] text-[#0f9f90] shadow-sm transform rotate-6">
-        {"[ A | b ] = [ẋ = Ax + Bu]"}
-      </div>
-    </Sticker>
-
-    {/* Art Palette Sticker */}
-    <Sticker style={{ top: '82%', left: '5%' }} delay={4}>
-      <div className="bg-[#0f9f90]/5 border border-[#0f9f90]/15 rounded-xl p-2 text-[#0f9f90] shadow-sm transform -rotate-3">
-        <svg width="35" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      ), left: '42%', duration: 20, delay: 5 },
+    { el: <div className="font-mono text-sm">[A|b]</div>, left: '55%', duration: 22, delay: 2 },
+    { el: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.34458 19.4968 5.48512 20.2479 5.2104 20.887C5.06822 21.218 5.16386 21.6033 5.44976 21.8219C5.73566 22.0405 6.1368 22.0354 6.41728 21.8097C7.54637 20.8993 8.78457 20.25 10.125 20.0625C10.7423 19.9761 11.3789 20 12 22Z" />
-          <circle cx="7.5" cy="10.5" r="1" fill="currentColor" />
-          <circle cx="11.5" cy="7.5" r="1" fill="currentColor" />
-          <circle cx="16.5" cy="9.5" r="1" fill="currentColor" />
         </svg>
-      </div>
-    </Sticker>
-  </div>
-);
+      ), left: '68%', duration: 19, delay: 6 },
+    { el: <div className="font-serif text-2xl font-bold">∇</div>, left: '78%', duration: 17, delay: 4 },
+    { el: <div className="font-serif text-lg font-bold">E[X]</div>, left: '88%', duration: 25, delay: 1.5 },
+    { el: (
+        <svg width="30" height="20" viewBox="0 0 40 25" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <circle cx="5" cy="20" r="2" fill="currentColor" />
+          <circle cx="20" cy="10" r="2" fill="currentColor" />
+          <circle cx="35" cy="5" r="2" fill="currentColor" />
+          <path d="M 5,20 C 15,20 15,10 20,10 C 25,10 30,5 35,5" />
+        </svg>
+      ), left: '94%', duration: 21, delay: 8 }
+  ];
+
+  return (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0">
+      {stickersList.map((st, idx) => (
+        <FallingSticker key={idx} left={st.left} duration={st.duration} delay={st.delay}>
+          <div className="text-[#0f9f90]">
+            {st.el}
+          </div>
+        </FallingSticker>
+      ))}
+    </div>
+  );
+};
 
 // Organic hand-drawn SVG dividers
 const WobblyDivider = ({ variant = 1 }: { variant?: number }) => {
@@ -120,8 +111,8 @@ export default function Home() {
       animate="visible"
       className="flex flex-col relative hero-glow"
     >
-      {/* Background Translucent Stickers */}
-      <FloatingStickers />
+      {/* Background Translucent Falling Stickers */}
+      <FallingStickersContainer />
 
       {/* Main Split Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10 py-4">
@@ -248,6 +239,8 @@ export default function Home() {
                   icon: <GraduationCap size={24} />,
                   status: 'starting',
                   statusLabel: 'Starting August 2026',
+                  cardClass: 'card-manila rotate-[-1deg]',
+                  tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
                 },
                 {
                   degree: 'M.S. in ECE',
@@ -257,6 +250,8 @@ export default function Home() {
                   icon: <GraduationCap size={24} />,
                   status: 'completed',
                   statusLabel: 'Completed',
+                  cardClass: 'card-graph rotate-[1.5deg]',
+                  tape: <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-12" />
                 },
                 {
                   degree: 'B.S. in Probability & Stats',
@@ -266,12 +261,15 @@ export default function Home() {
                   icon: <GraduationCap size={24} />,
                   status: 'cum_laude',
                   statusLabel: 'Cum Laude',
+                  cardClass: 'card-ruled rotate-[-1.5deg]',
+                  tape: <div className="absolute -top-2 right-6 w-16 washi-tape transform rotate-12" />
                 },
               ].map((edu) => (
                 <div
                   key={edu.degree}
-                  className="card flex flex-col gap-4"
+                  className={`card ${edu.cardClass} hover:rotate-0 hover:scale-[1.02] hover:shadow-md transition-all duration-200 flex flex-col gap-4 relative pt-8 p-5`}
                 >
+                  {edu.tape}
                   <div className="flex items-center gap-3">
                     <div
                       className="p-2.5 rounded-xl border flex items-center justify-center"
@@ -299,7 +297,7 @@ export default function Home() {
                       {edu.icon}
                     </div>
                     <div>
-                      <h3 className="font-serif text-lg font-bold text-primary">{edu.degree}</h3>
+                      <h3 className="font-serif text-base font-bold text-primary leading-tight">{edu.degree}</h3>
                       <span className="font-sans text-xs text-text-muted font-medium">{edu.school}</span>
                     </div>
                   </div>
@@ -345,7 +343,7 @@ export default function Home() {
               Key Milestones
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   label: 'WAYMO CHALLENGE',
@@ -353,6 +351,8 @@ export default function Home() {
                   desc: 'Placed in the elite global tier in the Waymo End-to-End Trajectory prediction challenge using ViT models.',
                   icon: <Award className="mx-auto md:mx-0" size={26} />,
                   color: '#0f9f90',
+                  cardClass: 'card-manila rotate-[1deg]',
+                  tape: <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-6" />
                 },
                 {
                   label: 'PUBLICATIONS',
@@ -360,6 +360,8 @@ export default function Home() {
                   desc: 'Published anchor-free keypoint detection models yielding 78.2% AP score on the ApolloCar3D dataset.',
                   icon: <BookOpen className="mx-auto md:mx-0" size={26} />,
                   color: '#FF6F61',
+                  cardClass: 'card-ruled rotate-[-1.2deg]',
+                  tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
                 },
                 {
                   label: 'ENTERPRISE AI',
@@ -367,9 +369,15 @@ export default function Home() {
                   desc: 'Designed event processing engines and Cassandra state structures parsing 500k+ pipelines at Balbix.',
                   icon: <Briefcase className="mx-auto md:mx-0" size={26} />,
                   color: '#c47c0e',
+                  cardClass: 'card-graph rotate-[1deg]',
+                  tape: <div className="absolute -top-2 right-6 w-16 washi-tape transform rotate-6" />
                 },
               ].map((milestone) => (
-                <div key={milestone.title} className="flex flex-col gap-2 font-sans">
+                <div 
+                  key={milestone.title} 
+                  className={`card ${milestone.cardClass} hover:rotate-0 hover:scale-[1.02] hover:shadow-md transition-all duration-200 flex flex-col gap-2 font-sans pt-8 p-5 relative`}
+                >
+                  {milestone.tape}
                   <div
                     className="w-11 h-11 rounded-xl border flex items-center justify-center mx-auto md:mx-0 shadow-sm"
                     style={{
@@ -403,14 +411,15 @@ export default function Home() {
               Connect &amp; Collaborate
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans mt-2">
               {/* LinkedIn Card */}
               <a
                 href="https://www.linkedin.com/in/maitrayee-keskar-0a426a19a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+                className="card card-ruled rotate-[1.5deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-md transition-all duration-200 p-6 pt-8 flex flex-col justify-between gap-6 cursor-pointer relative"
               >
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
                 <div className="flex items-center justify-between">
                   <div className="p-2.5 rounded-xl bg-[#0077B5]/10 border border-[#0077B5]/20 text-[#0077B5] group-hover:bg-[#0077B5]/20 transition-colors">
                     <Linkedin size={20} />
@@ -431,8 +440,9 @@ export default function Home() {
                 href="https://github.com/mmkeskar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+                className="card card-graph rotate-[-1.5deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-md transition-all duration-200 p-6 pt-8 flex flex-col justify-between gap-6 cursor-pointer relative"
               >
+                <div className="absolute -top-2 left-6 w-16 washi-tape transform -rotate-12" />
                 <div className="flex items-center justify-between">
                   <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent group-hover:bg-accent/20 transition-colors">
                     <Github size={20} />
@@ -451,8 +461,9 @@ export default function Home() {
               {/* Email Card */}
               <a
                 href="mailto:mkeskar@ucmerced.edu"
-                className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
+                className="card card-postit rotate-[1.2deg] hover:rotate-0 hover:scale-[1.02] hover:shadow-md transition-all duration-200 p-6 pt-8 flex flex-col justify-between gap-6 cursor-pointer relative"
               >
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
                 <div className="flex items-center justify-between">
                   <div className="p-2.5 rounded-xl bg-[#FF6F61]/10 border border-[#FF6F61]/20 text-[#FF6F61] group-hover:bg-[#FF6F61]/20 transition-colors">
                     <Mail size={20} />

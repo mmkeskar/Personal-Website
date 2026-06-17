@@ -685,8 +685,83 @@ h1, h2, h3, h4, h5, h6 {
   .lg\:grid { display: grid !important; }
   .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }
   .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .lg\:col-span-8 { grid-column: span 8 / span 8 !important; }
   .lg\:col-span-7 { grid-column: span 7 / span 7 !important; }
   .lg\:col-span-5 { grid-column: span 5 / span 5 !important; }
+  .lg\:col-span-4 { grid-column: span 4 / span 4 !important; }
   .lg\:col-span-2 { grid-column: span 2 / span 2 !important; }
   .lg\:col-span-1 { grid-column: span 1 / span 1 !important; }
+}
+
+/* ==========================================================================
+   Tactile Notebook / Scrapbook Elements
+   ========================================================================== */
+
+/* Yellow Sticky Note Style */
+.card-postit {
+  background-color: #fefce8 !important; /* soft sticky yellow */
+  border: 1px solid rgba(202, 138, 4, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(202, 138, 4, 0.05), 0 1px 3px rgba(202, 138, 4, 0.03) !important;
+  border-radius: 2px !important;
+  color: #451a03 !important; /* dark brown text for legibility */
+}
+
+/* Ruled Index Card Style */
+.card-ruled {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(rgba(15, 159, 144, 0.06) 1px, transparent 1px) !important;
+  background-size: 100% 24px !important;
+  line-height: 24px !important;
+  border: 1px solid rgba(15, 159, 144, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* Graph Paper Memo Style */
+.card-graph {
+  background-color: #ffffff !important;
+  background-image: linear-gradient(rgba(15, 159, 144, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(15, 159, 144, 0.05) 1px, transparent 1px) !important;
+  background-size: 16px 16px !important;
+  border: 1px solid rgba(15, 159, 144, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* Manila Cardstock Style */
+.card-manila {
+  background-color: #faf6ef !important; /* vintage manila folder */
+  border: 1px solid rgba(28, 27, 26, 0.1) !important;
+  box-shadow: var(--shadow-sm) !important;
+  border-radius: 8px !important;
+}
+
+/* Washi Tape Accent */
+.washi-tape {
+  height: 22px;
+  background: rgba(15, 159, 144, 0.2);
+  border: 1px solid rgba(15, 159, 144, 0.15);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 1px 3px rgba(15, 159, 144, 0.05);
+  z-index: 10;
+}
+
+/* Pushpin Decoration */
+.pushpin-accent {
+  width: 10px;
+  height: 10px;
+  background: #ef4444; /* red pushpin */
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.pushpin-accent::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 6px;
+  background: #94a3b8;
+  transform: translate(-50%, -50%) rotate(15deg);
+  transform-origin: top;
+  z-index: -1;
 }
