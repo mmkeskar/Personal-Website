@@ -60,10 +60,16 @@ export default function Home() {
 
           <div className="font-sans text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl flex flex-col gap-4">
             <p>
-              I am a doctoral researcher driven by the intersection of foundational mathematics and autonomy. Under the mentorship of <strong>Prof. Ross Greer</strong>, my work at UC Merced targets coordination and intent recognition inside complex multi-agent frameworks.
+              Hi! I&apos;m <strong>Mai</strong>, a probability-and-statistics major turned autonomous driving researcher.
             </p>
             <p>
-              By bridging a mathematical background in <strong>Probability and Statistics</strong> with engineering experience developing large-scale distributed analytics at <strong>Balbix</strong>, I design resilient systems capable of joint perception and decision-making—advancing multi-agent reinforcement learning, computer vision, and dynamic robot control.
+              I&apos;m starting my PhD at UC Merced with <strong>Prof. Ross Greer</strong>, working on trajectory prediction, motion planning, V2X communication, and safety-critical autonomous systems. I hold an M.S. and B.S. from UC San Diego, where I worked with <strong>Prof. Mohan Trivedi</strong>, <strong>Prof. Parinaz Naghizadeh</strong>, and <strong>Prof. Nikolay Atanasov</strong>. A highlight: our two-person team&apos;s <strong>top-15 finish</strong> in the Waymo Open End-to-End Driving Challenge.
+            </p>
+            <p>
+              I&apos;m drawn to problems where mathematics meets real-world decision-making under uncertainty, which is basically all of driving.
+            </p>
+            <p>
+              When I&apos;m not writing proofs or training models, you&apos;ll find me reading, painting, or doing nail art.
             </p>
           </div>
 
