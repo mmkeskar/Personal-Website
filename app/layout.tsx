@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import FallingStickers from '@/components/FallingStickers';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -32,7 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
+      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased relative">
+        <FallingStickers />
         <Navbar />
         <main className="main-content container flex-1 flex flex-col justify-start">
           {children}

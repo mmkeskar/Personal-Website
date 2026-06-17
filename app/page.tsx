@@ -4,92 +4,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
 
-// Falling dynamic translucent stickers
-const FallingSticker = ({ children, left, duration, delay }: { children: React.ReactNode; left: string; duration: number; delay: number }) => (
-  <motion.div
-    style={{ left, top: '-110px', zIndex: -10 }}
-    className="fixed pointer-events-none select-none opacity-[0.06]"
-    initial={{ y: -110, rotate: 0 }}
-    animate={{ 
-      y: '115vh', 
-      rotate: 360 
-    }}
-    transition={{
-      duration,
-      repeat: Infinity,
-      ease: "linear",
-      delay,
-    }}
-  >
-    {children}
-  </motion.div>
-);
-
-const FallingStickersContainer = () => {
-  const stickersList = [
-    { el: <div className="font-serif text-6xl font-bold">∫</div>, left: '3%', duration: 22, delay: 0 },
-    { el: <div className="font-serif text-3xl font-bold">P(A|B)</div>, left: '12%', duration: 28, delay: 4 },
-    { el: <div className="font-serif text-8xl font-bold">∑</div>, left: '22%', duration: 19, delay: 1 },
-    { el: (
-        <svg width="80" height="50" viewBox="0 0 80 40" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <path d="M 10,35 C 30,35 25,5 50,5 C 65,5 70,25 75,25" />
-          <circle cx="10" cy="35" r="2.5" fill="currentColor" />
-          <circle cx="37" cy="20" r="2.5" fill="currentColor" />
-          <circle cx="50" cy="5" r="2.5" fill="currentColor" />
-          <circle cx="75" cy="25" r="2.5" fill="currentColor" />
-        </svg>
-      ), left: '32%', duration: 25, delay: 6 },
-    { el: (
-        <svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <circle cx="12" cy="12" r="10" />
-          <circle cx="12" cy="12" r="3" />
-          <line x1="12" y1="2" x2="12" y2="9" />
-          <line x1="12" y1="15" x2="12" y2="22" />
-          <line x1="2" y1="12" x2="9" y2="12" />
-          <line x1="15" y1="12" x2="22" y2="12" />
-        </svg>
-      ), left: '42%', duration: 21, delay: 2 },
-    { el: <div className="font-mono text-3xl">[A|b]</div>, left: '52%', duration: 26, delay: 8 },
-    { el: <div className="font-serif text-7xl font-bold">∇</div>, left: '62%', duration: 18, delay: 3 },
-    { el: (
-        <svg width="65" height="65" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <path d="M12 21a9 9 0 0 0 9-9" />
-          <path d="M12 21a6 6 0 0 0 6-6" />
-          <path d="M12 21a3 3 0 0 0 3-3" />
-          <line x1="12" y1="21" x2="12" y2="12" />
-          <line x1="12" y1="21" x2="21" y2="21" />
-          <line x1="12" y1="21" x2="18.36" y2="14.64" />
-        </svg>
-      ), left: '72%', duration: 24, delay: 7 },
-    { el: <div className="font-serif text-3xl font-bold">E[X]</div>, left: '80%', duration: 29, delay: 1.5 },
-    { el: <div className="font-serif text-4xl font-bold">x̂<sub>t|t-1</sub></div>, left: '88%', duration: 23, delay: 5 },
-    { el: (
-        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.34458 19.4968 5.48512 20.2479 5.2104 20.887C5.06822 21.218 5.16386 21.6033 5.44976 21.8219C5.73566 22.0405 6.1368 22.0354 6.41728 21.8097C7.54637 20.8993 8.78457 20.25 10.125 20.0625C10.7423 19.9761 11.3789 20 12 22Z" />
-        </svg>
-      ), left: '94%', duration: 27, delay: 9 },
-    { el: (
-        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-          <path d="M12 2L15 8L22 9L17 14L18 21L12 17L6 21L7 14L2 9L9 8L12 2Z" />
-        </svg>
-      ), left: '7%', duration: 20, delay: 11 }
-  ];
-
-  return (
-    <div 
-      className="fixed inset-0 pointer-events-none overflow-hidden select-none"
-      style={{ zIndex: -10 }}
-    >
-      {stickersList.map((st, idx) => (
-        <FallingSticker key={idx} left={st.left} duration={st.duration} delay={st.delay}>
-          <div className="text-[#0f9f90]">
-            {st.el}
-          </div>
-        </FallingSticker>
-      ))}
-    </div>
-  );
-};
 
 // Organic hand-drawn SVG dividers
 const WobblyDivider = ({ variant = 1 }: { variant?: number }) => {
@@ -136,8 +50,6 @@ export default function Home() {
       animate="visible"
       className="flex flex-col relative hero-glow"
     >
-      {/* Background Translucent Falling Stickers */}
-      <FallingStickersContainer />
 
       {/* Main Split Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10 py-4">
