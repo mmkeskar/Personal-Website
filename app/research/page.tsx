@@ -12,9 +12,9 @@ interface Lab {
   description: string;
   tracks?: {
     title: string;
-    highlights: string[];
+    highlights: string;
   }[];
-  highlights?: string[];
+  highlights?: string;
   tags: string[];
 }
 
@@ -28,18 +28,13 @@ const labsData: Lab[] = [
     tracks: [
       {
         title: 'Graduate Track (Joint with Mi3 Lab, UC Merced)',
-        highlights: [
-          'Engineered MTR-VP, a vision-first trajectory planning network replacing HD-map features with learned visual representations via Vision Transformers (ViT).',
-          'Developed a cross-attention decoder combining behavioral intent vectors with visual scene context to generate multi-trajectory sets.',
-          'Placed in the Top-15 internationally in the Waymo End-to-End challenge.',
-        ],
+        highlights:
+          "Most autonomous driving systems depend on expensive, pre-built HD maps to plan safe trajectories. But maps go stale, they're costly to maintain, and they don't exist for every road. MTR-VP asks a different question: what if the car could plan entirely from what it sees? I designed a vision-first trajectory planning architecture that replaces HD-map inputs with learned visual representations from a Vision Transformer, fused through a cross-attention decoder that combines what the vehicle intends to do with what the camera observes. As a two-person team with Prof. Ross Greer, this work placed top-15 globally in the Waymo Open End-to-End Driving Challenge. A first-authored paper has been submitted to IEEE Robotics and Automation Letters.",
       },
       {
         title: 'Undergraduate Track',
-        highlights: [
-          'Adapted anchor-free CenterNet models for joint multi-target localization, earning a first-author slot in IEEE Robotics and Automation Letters.',
-          'Created custom keypoint loss architectures in PyTorch, establishing a 78.2% AP score on the ApolloCar3D dataset.',
-        ],
+        highlights:
+          "Detecting a vehicle as a single bounding box discards a lot of useful information: which lights are on, where the wheels are, how the body is oriented. I adapted the anchor-free CenterNet architecture to jointly detect vehicles and their substructures (lights, wheels, windshields) as keypoints, building a custom detection head and loss function in PyTorch. The model achieved 78.2% AP on the ApolloCar3D dataset and was published as a first-author paper in IEEE Robotics and Automation Letters.",
       },
     ],
     tags: ['Computer Vision', 'Vision Transformers', 'Keypoint Detection', 'Trajectory Planning', 'PyTorch'],
@@ -50,10 +45,8 @@ const labsData: Lab[] = [
     period: 'Jan. 2025 – Jan. 2026',
     advisor: 'Prof. Parinaz Naghizadeh',
     description: 'Formulating communication proofs and information boundaries for cooperative Multi-Agent Reinforcement Learning (MARL).',
-    highlights: [
-      'Modeled sample-complexity scaling proofs mapping communication protocol overhead straight to MARL training efficiency.',
-      'Tailored Optimized Maximum Likelihood Estimation (OMLE) algorithms to establish bounds on multi-agent observation clarity under limited communication bandwidth.',
-    ],
+    highlights:
+      "When multiple agents need to learn together in a decentralized setting, how much do they need to communicate, and how does that communication affect how quickly they learn? I worked on building a theoretical framework that formally connects the structure of communication protocols to the sample complexity of multi-agent reinforcement learning algorithms. Using adapted Optimized Maximum Likelihood Estimation (OMLE) methods, I established bounds on how well an agent can observe its environment under limited bandwidth, with formal guarantees on how specific communication schemes affect training efficiency and convergence.",
     tags: ['MARL', 'Probability & Stats', 'Optimization', 'Sample Complexity'],
   },
   {
@@ -62,10 +55,8 @@ const labsData: Lab[] = [
     period: 'Nov. 2024 – Sep. 2025',
     advisor: 'Prof. Nikolay Atanasov',
     description: 'Benchmarking spatial coordination and communication structures in multi-robot environments.',
-    highlights: [
-      'Deployed Graph Attention Networks (GAT) within the BenchMARL framework to benchmark lightweight coordination layers for cooperative reinforcement learning.',
-      'Contributed research structures for a conference paper submission on model-free game spaces.',
-    ],
+    highlights:
+      "How should we evaluate whether lightweight, attention-based policies actually work for multi-robot coordination? I built the experimental validation framework for a self-attention-based MARL policy, implementing a Graph Attention Network baseline within the BenchMARL framework and designing a head-to-head evaluation suite with metrics like capture rate and inter-agent distance. This contributed to a co-authored submission to ICRA on model-free policy gradient methods for distributed multi-agent games.",
     tags: ['Graph Neural Networks', 'MARL', 'BenchMARL', 'TorchRL', 'Robotics'],
   },
 ];
@@ -150,15 +141,13 @@ export default function Research() {
             {lab.tracks && (
               <div className="flex flex-col gap-6">
                 {lab.tracks.map((track) => (
-                  <div key={track.title} className="flex flex-col gap-3">
+                  <div key={track.title} className="flex flex-col gap-2">
                     <h3 className="font-serif text-base font-bold text-primary flex items-center gap-2">
                       <GraduationCap size={16} className="text-accent" /> {track.title}
                     </h3>
-                    <ul className="list-disc pl-5 font-sans text-sm text-foreground/85 flex flex-col gap-2">
-                      {track.highlights.map((highlight, idx) => (
-                        <li key={idx} className="leading-relaxed">{highlight}</li>
-                      ))}
-                    </ul>
+                    <p className="font-sans text-sm md:text-base text-foreground/80 leading-relaxed">
+                      {track.highlights}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -166,11 +155,9 @@ export default function Research() {
 
             {/* Flat Highlights (For ERL & MINDS Labs) */}
             {lab.highlights && (
-              <ul className="list-disc pl-5 font-sans text-sm text-foreground/85 flex flex-col gap-2">
-                {lab.highlights.map((highlight, idx) => (
-                  <li key={idx} className="leading-relaxed">{highlight}</li>
-                ))}
-              </ul>
+              <p className="font-sans text-sm md:text-base text-foreground/80 leading-relaxed">
+                {lab.highlights}
+              </p>
             )}
 
             {/* Tags */}

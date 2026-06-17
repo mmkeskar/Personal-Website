@@ -9,7 +9,7 @@ interface Job {
   role: string;
   period: string;
   location: string;
-  highlights: string[];
+  highlights: string;
   tags: string[];
 }
 
@@ -19,12 +19,8 @@ const experienceData: Job[] = [
     role: 'AI Software Engineer',
     period: 'July 2022 – August 2024',
     location: 'San Jose, CA (Remote)',
-    highlights: [
-      'Deployed PySpark clusters and processing engines handling 500k+ real-time vulnerability feeds into automated remediation systems.',
-      'Orchestrated Airflow DAG schedules on production Kubernetes environments to analyze and catalog vulnerability attributes of 2M+ End-Of-Life (EOL) packages.',
-      'Designed high-throughput Cassandra event architectures managing transactional states for pipelines across 5M+ active customer endpoints.',
-      'Formulated statistical cybersecurity breach prediction frameworks mapping CVSS scores and CWE classifications to organizational risks for C-suite engineering briefings.',
-    ],
+    highlights:
+      "Balbix is a cybersecurity platform that helps enterprises understand and reduce their breach risk. As a software engineer on the AI team, I built the data infrastructure that made this possible at scale: PySpark pipelines processing 500k+ real-time vulnerability feeds, Airflow-orchestrated workflows cataloging risk attributes across 2M+ end-of-life software packages, and high-throughput Cassandra event architectures tracking state changes across 5M+ customer endpoints. I also built the statistical models underneath the product's risk predictions, mapping CVSS scores and CWE classifications to organizational breach likelihood, and presented these frameworks directly to the CTO and VP of Engineering. Working at production scale for two years gave me an engineering discipline that directly shapes how I approach research systems today.",
     tags: ['PySpark', 'Cassandra', 'Kubernetes', 'Airflow', 'Python', 'AWS', 'Statistical Modeling'],
   },
   {
@@ -32,10 +28,8 @@ const experienceData: Job[] = [
     role: 'Engineering Intern',
     period: 'June 2021 – September 2021',
     location: 'San Jose, CA',
-    highlights: [
-      'Built Q-learning and Actor-Critic Reinforcement Learning models inside customized Gym environments to simulate and map lateral movement threat vectors.',
-      'Modelled optimal defense paths for corporate networks under simulated network penetration layouts.',
-    ],
+    highlights:
+      "During my internship, I built reinforcement learning models (Q-learning and Actor-Critic) in custom OpenAI Gym environments to simulate how attackers move laterally through corporate networks, and used those simulations to model optimal defense strategies. This was my first exposure to RL in a practical setting, and it planted the seed for the multi-agent RL work I would later pursue in graduate school.",
     tags: ['Reinforcement Learning', 'Q-learning', 'Actor-Critic', 'Python', 'OpenAI Gym'],
   },
 ];
@@ -118,15 +112,13 @@ export default function Experience() {
             </div>
 
             {/* Accomplishments */}
-            <div>
-              <h3 className="font-serif text-sm font-bold tracking-wider text-text-muted uppercase mb-3">
-                Key Accomplishments
+            <div className="flex flex-col gap-2">
+              <h3 className="font-serif text-sm font-bold tracking-wider text-text-muted uppercase mb-1">
+                Role &amp; Impact
               </h3>
-              <ul className="list-disc pl-5 font-sans text-sm md:text-base text-foreground/80 flex flex-col gap-3">
-                {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="leading-relaxed">{highlight}</li>
-                ))}
-              </ul>
+              <p className="font-sans text-sm md:text-base text-foreground/80 leading-relaxed">
+                {job.highlights}
+              </p>
             </div>
 
             {/* Tags */}
