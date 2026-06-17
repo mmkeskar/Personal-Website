@@ -159,7 +159,7 @@ export default function Home() {
                 Research &amp; Publications <ChevronRight size={16} />
               </Link>
               <a
-                href="/Personal-Website/CV.pdf"
+                href="/Personal-Website/Keskar_Maitrayee_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary flex items-center gap-2 font-semibold"
