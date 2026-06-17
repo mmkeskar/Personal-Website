@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Experience', path: '/experience' },
   { name: 'Publications', path: '/publications' },
   { name: 'Skills', path: '/skills' },
+  { name: 'Hobbies', path: '/hobbies' },
 ];
 
 const socialLinks = {
