@@ -15,7 +15,7 @@ const navItems = [
 
 const socialLinks = {
   github: 'https://github.com/mmkeskar',
-  linkedin: 'https://linkedin.com/in/maitrayee-keskar',
+  linkedin: 'https://www.linkedin.com/in/maitrayee-keskar-0a426a19a/',
   email: 'mailto:mkeskar@ucmerced.edu',
 };
 
