@@ -135,13 +135,6 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </div>
-            
-            {/* Polaroid Handwriting Style Caption */}
-            <div className="text-center mt-4 font-sans">
-              <span className="text-[10px] font-bold text-accent tracking-widest uppercase">
-                Mai @ Autonomy Lab
-              </span>
-            </div>
           </div>
 
           {/* User Name and Summary Details */}
@@ -194,16 +187,22 @@ export default function Home() {
             <h2 className="section-title">About Me</h2>
             <div className="font-sans text-base md:text-lg leading-relaxed text-foreground flex flex-col gap-4 mt-2">
               <p>
-                Hi! I&apos;m <strong>Mai</strong>, a probability-and-statistics major turned autonomous driving researcher.
+                Hi, I&apos;m <strong>Maitrayee</strong>!
               </p>
               <p>
-                I&apos;m starting my PhD at UC Merced with <strong>Prof. Ross Greer</strong>, working on trajectory prediction, motion planning, V2X communication, and safety-critical autonomous systems. I hold an M.S. and B.S. from UC San Diego, where I worked with <strong>Prof. Mohan Trivedi</strong>, <strong>Prof. Parinaz Naghizadeh</strong>, and <strong>Prof. Nikolay Atanasov</strong>. A highlight: our two-person team&apos;s <strong>top-15 finish</strong> in the Waymo Open End-to-End Driving Challenge.
+                I fell in love with probability and statistics before I ever touched a line of code. There&apos;s something deeply satisfying about finding structure in uncertainty, about proving that randomness has rules. I studied it as my undergraduate major at UC San Diego, and that way of thinking followed me everywhere: into machine learning, into robotics, and eventually into the question that drives my research now: how do you make a car that can drive itself safely through an unpredictable world?
               </p>
               <p>
-                I&apos;m drawn to problems where mathematics meets real-world decision-making under uncertainty, which is basically all of driving.
+                I&apos;m an incoming PhD student in EECS at UC Merced, working with <strong>Prof. Ross Greer</strong> on autonomous driving. My research spans trajectory prediction, motion planning, vehicle-to-everything (V2X) communication, and safety-critical decision-making. Recently, as a two-person team, we placed <strong>top-15 globally</strong> in the Waymo Open End-to-End Driving Challenge, which was one of the most rewarding experiences of my graduate career.
               </p>
               <p>
-                When I&apos;m not writing proofs or training models, you&apos;ll find me reading, painting, or doing nail art.
+                Before all of this, I spent two years as a software engineer building production-scale AI systems for cybersecurity. That time taught me what it means to write code that has to work at scale, every day, with real consequences.
+              </p>
+              <p>
+                Outside the lab, I paint, do nail art, and read as much as I can. I think the best researchers are the ones who stay curious about everything, not just their own field.
+              </p>
+              <p>
+                I&apos;m always happy to chat. Feel free to reach out.
               </p>
             </div>
 
