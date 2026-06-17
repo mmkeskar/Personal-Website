@@ -297,7 +297,7 @@ export default function SkillsMatrix() {
                         skill.category === 'languages'
                           ? 'var(--text-muted)'
                           : skill.category === 'ai'
-                          ? '#7C5CFC'
+                          ? 'var(--accent)'
                           : '#c47c0e',
                     }}
                   >
@@ -327,7 +327,7 @@ export default function SkillsMatrix() {
                         selectedSkill.category === 'languages'
                           ? 'var(--text-muted)'
                           : selectedSkill.category === 'ai'
-                          ? '#7C5CFC'
+                          ? 'var(--accent)'
                           : '#c47c0e',
                     }}
                   >

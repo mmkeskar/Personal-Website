@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Logo/Name */}
         <Link href="/" className="font-serif text-lg font-bold tracking-tight text-primary hover:text-accent transition-all flex items-center gap-2">
           <span>Maitrayee Keskar</span>
-          <span className="hidden sm:inline text-[10px] font-sans font-bold px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(124, 92, 252, 0.08)', color: 'var(--accent)', borderColor: 'rgba(124, 92, 252, 0.15)' }}>
+          <span className="hidden sm:inline text-[10px] font-sans font-bold px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(15, 159, 144, 0.08)', color: 'var(--accent)', borderColor: 'rgba(15, 159, 144, 0.15)' }}>
             Ph.D. Student
           </span>
         </Link>
@@ -120,7 +120,7 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="block font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors"
                       style={{
-                        backgroundColor: isActive ? 'rgba(124, 92, 252, 0.08)' : 'transparent',
+                        backgroundColor: isActive ? 'rgba(15, 159, 144, 0.08)' : 'transparent',
                         color: isActive ? 'var(--accent)' : 'var(--text-muted)'
                       }}
                     >

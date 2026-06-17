@@ -1,20 +1,20 @@
 :root {
-  --background: #fbfaf7;      /* Clean warm off-white sketchbook canvas */
-  --foreground: #3c3836;      /* Soft charcoal for body legibility */
-  --primary: #1c1b1a;         /* Deep slate for titles */
-  --primary-light: #2c2b2a;
-  --accent: #7C5CFC;          /* Electric violet active color */
-  --accent-light: #9B82FC;
-  --accent-rgb: 124, 92, 252;
-  --text-muted: #8c8580;      /* Muted warm stone */
-  --border-color: rgba(28, 27, 26, 0.08); /* Delicate borders */
-  --border-emphasis: rgba(28, 27, 26, 0.15);
+  --background: #f4faf9;      /* Soft light turquoise/mint paper canvas */
+  --foreground: #2d3736;      /* Soft warm slate-charcoal text */
+  --primary: #0f2e2a;         /* Deep forest/teal-black for elegant titles */
+  --primary-light: #1b3d39;
+  --accent: #0f9f90;          /* Vibrant turquoise active color */
+  --accent-light: #2ec4b6;
+  --accent-rgb: 15, 159, 144;
+  --text-muted: #6e7e7c;      /* Muted slate-teal stone */
+  --border-color: rgba(15, 159, 144, 0.08); /* Delicate teal borders */
+  --border-emphasis: rgba(15, 159, 144, 0.16);
   --card-bg: #ffffff;         /* Pure white card container */
-  --elevated-bg: #f5f3ef;     /* Light warm-beige active/hover surface */
-  --header-bg: rgba(251, 250, 247, 0.85); /* Sticky Nav backdrop */
-  --shadow-sm: 0 2px 8px rgba(28, 27, 26, 0.02), 0 1px 3px rgba(28, 27, 26, 0.03);
-  --shadow-md: 0 12px 30px rgba(28, 27, 26, 0.05), 0 4px 12px rgba(28, 27, 26, 0.03);
-  --shadow-lg: 0 24px 48px rgba(28, 27, 26, 0.08), 0 8px 20px rgba(28, 27, 26, 0.04);
+  --elevated-bg: #e5f2f0;     /* Light turquoise-tinted hover surface */
+  --header-bg: rgba(244, 250, 249, 0.85); /* Sticky Nav backdrop */
+  --shadow-sm: 0 2px 8px rgba(15, 159, 144, 0.02), 0 1px 3px rgba(15, 159, 144, 0.03);
+  --shadow-md: 0 12px 30px rgba(15, 159, 144, 0.05), 0 4px 12px rgba(15, 159, 144, 0.03);
+  --shadow-lg: 0 24px 48px rgba(15, 159, 144, 0.08), 0 8px 20px rgba(15, 159, 144, 0.04);
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --max-width: 1060px;
@@ -39,8 +39,8 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background-color: var(--background);
-  /* Barely visible dot grid pattern for light mode */
-  background-image: radial-gradient(rgba(28, 27, 26, 0.03) 1.2px, transparent 1.2px);
+  /* Barely visible dot grid pattern with subtle teal tint */
+  background-image: radial-gradient(rgba(15, 159, 144, 0.04) 1.2px, transparent 1.2px);
   background-size: 20px 20px;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Text Accent Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, #1c1b1a 30%, #7C5CFC 100%);
+  background: linear-gradient(135deg, #0f2e2a 30%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Color-Coded Card Left Borders */
-.card-perception { border-left: 3px solid #7C5CFC !important; }
+.card-perception { border-left: 3px solid var(--accent) !important; }
 .card-marl { border-left: 3px solid #2EC4B6 !important; }
 .card-planning { border-left: 3px solid #FF6F61 !important; }
 .card-industry { border-left: 3px solid #F4A940 !important; }
@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
   right: -80px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(124, 92, 252, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15, 159, 144, 0.07) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 10s ease-in-out infinite;
   z-index: 0;
@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 40px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 111, 97, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 169, 64, 0.04) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 8s ease-in-out infinite;
   z-index: 0;
@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 5%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(124, 92, 252, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15, 159, 144, 0.06) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 10s ease-in-out infinite;
   z-index: 0;
@@ -324,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 5%;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(46, 196, 182, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 169, 64, 0.03) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 8s ease-in-out infinite;
   z-index: 0;
@@ -340,7 +340,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 5%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(244, 169, 64, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 169, 64, 0.06) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 10s ease-in-out infinite;
   z-index: 0;
@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 5%;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(255, 111, 97, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15, 159, 144, 0.04) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 8s ease-in-out infinite;
   z-index: 0;
@@ -368,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 5%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(255, 111, 97, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 169, 64, 0.05) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 10s ease-in-out infinite;
   z-index: 0;
@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 5%;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(124, 92, 252, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(15, 159, 144, 0.05) 0%, transparent 70%);
   pointer-events: none;
   animation: glow-pulse 8s ease-in-out infinite;
   z-index: 0;
@@ -435,9 +435,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background: rgba(124, 92, 252, 0.08) !important;
-  border-color: #7C5CFC !important;
-  color: #1c1b1a !important;
+  background: rgba(15, 159, 144, 0.08) !important;
+  border-color: var(--accent) !important;
+  color: var(--primary) !important;
 }
 
 /* Hand drawn divider wobbly line */
