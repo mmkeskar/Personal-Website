@@ -19,7 +19,7 @@ const artworkData: Artwork[] = [
     id: 'tulips',
     title: 'Three Tulips',
     type: 'Pencil Sketch on Paper',
-    src: '/artwork/tulips.jpeg',
+    src: '/Personal-Website/artwork/tulips.jpeg',
     description: 'A study in graphite gradients and shading, focusing on the soft reflections and curves of opening petals.',
     cardStyle: 'rotate-[-1.5deg]',
     tape: <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-20 h-5 washi-tape transform -rotate-1" />
@@ -28,7 +28,7 @@ const artworkData: Artwork[] = [
     id: 'bird',
     title: 'The Long-Tailed Bird',
     type: 'Graphite on Paper',
-    src: '/artwork/bird.jpeg',
+    src: '/Personal-Website/artwork/bird.jpeg',
     description: 'Detailed sketch of a long-tailed bird on a branch, signed Maitrayee Keskar. Captures natural feathers and weight distribution.',
     cardStyle: 'rotate-[2deg]',
     tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
@@ -37,7 +37,7 @@ const artworkData: Artwork[] = [
     id: 'lantern_flowers',
     title: 'Hanging Lantern Flowers',
     type: 'Pencil Sketch on Paper',
-    src: '/artwork/lantern_flowers.jpeg',
+    src: '/Personal-Website/artwork/lantern_flowers.jpeg',
     description: 'Graphite study of hanging bell-like blossoms and leaves, rendered with high-contrast shadows and dark atmospheric background.',
     cardStyle: 'rotate-[-2deg]',
     tape: <div className="absolute -top-3 right-6 w-16 h-5 washi-tape transform rotate-6" />
@@ -46,7 +46,7 @@ const artworkData: Artwork[] = [
     id: 'sunflower',
     title: 'The Vibrant Sunflower',
     type: 'Acrylic on Canvas',
-    src: '/artwork/sunflower.jpeg',
+    src: '/Personal-Website/artwork/sunflower.jpeg',
     description: 'Bright, high-contrast yellow sunflower head painted on a solid electric blue canvas background, signed MMK.',
     cardStyle: 'rotate-[1.2deg]',
     tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
@@ -55,9 +55,54 @@ const artworkData: Artwork[] = [
     id: 'winding_road',
     title: 'Winding Path to the Peak',
     type: 'Acrylic on Canvas',
-    src: '/artwork/winding_road.jpeg',
+    src: '/Personal-Website/artwork/winding_road.jpeg',
     description: 'Landscape painting of a serpentine path climbing green hills toward pink mountain peaks. Features a self-portrait silhouette looking out, signed Maitrayee.',
     cardStyle: 'rotate-[-1deg]',
+    tape: <div className="absolute -top-3 left-6 w-16 h-5 washi-tape transform -rotate-6" />
+  },
+  {
+    id: 'peacock_lady',
+    title: 'The Peacock Lady',
+    type: 'Graphite on Paper',
+    src: '/Personal-Website/artwork/peacock_lady.jpeg',
+    description: 'A detailed graphite pencil portrait sketching a woman gracefully adorned with flowing peacock feather motifs.',
+    cardStyle: 'rotate-[1.5deg]',
+    tape: <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-20 h-5 washi-tape transform rotate-1" />
+  },
+  {
+    id: 'balancing_globe',
+    title: 'The Balancing Globe',
+    type: 'Pencil Sketch on Paper',
+    src: '/Personal-Website/artwork/balancing_globe.jpeg',
+    description: 'An intricate graphite sketch showing a hand carefully balancing a detailed geographic globe.',
+    cardStyle: 'rotate-[-1.2deg]',
+    tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
+  },
+  {
+    id: 'paisley_mandala',
+    title: 'Paisley Mandala',
+    type: 'Acrylic & Ink on Canvas',
+    src: '/Personal-Website/artwork/paisley_mandala.jpeg',
+    description: 'A vibrant, colorful acrylic painting blending traditional Indian paisley motifs with a structured geometric mandala design.',
+    cardStyle: 'rotate-[0.8deg]',
+    tape: <div className="absolute -top-3 right-6 w-16 h-5 washi-tape transform rotate-3" />
+  },
+  {
+    id: 'pink_lilies',
+    title: 'Pink Lilies',
+    type: 'Acrylic on Canvas',
+    src: '/Personal-Website/artwork/pink_lilies.jpeg',
+    description: 'An elegant acrylic floral painting depicting bright pink lilies in full bloom on a soft, textured background.',
+    cardStyle: 'rotate-[-2.2deg]',
+    tape: <div className="absolute top-2.5 left-1/2 -translate-x-1/2 pushpin-accent" />
+  },
+  {
+    id: 'rose_sketch',
+    title: 'Rose Sketch',
+    type: 'Pencil Sketch on Paper',
+    src: '/Personal-Website/artwork/rose_sketch.jpeg',
+    description: 'A delicate and precise graphite pencil sketch capturing the soft, folding petals of a single blooming rose.',
+    cardStyle: 'rotate-[1.8deg]',
     tape: <div className="absolute -top-3 left-6 w-16 h-5 washi-tape transform -rotate-6" />
   }
 ];

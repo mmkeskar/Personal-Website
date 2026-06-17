@@ -67,7 +67,7 @@ export default function Home() {
             {/* Image Frame */}
             <div className="aspect-[3/4] w-full overflow-hidden rounded-lg relative bg-[#e5f2f0] border border-border-color">
               <img
-                src="/my_photo.JPG"
+                src="/Personal-Website/my_photo.JPG"
                 alt="Maitrayee Keskar"
                 className="w-full h-full object-cover"
               />
