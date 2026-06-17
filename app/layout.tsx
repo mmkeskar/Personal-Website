@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased relative">
         <FallingStickers />
         <Navbar />
-        <main className="main-content container flex-1 flex flex-col justify-start">
+        <main className="main-content container flex-1 flex flex-col justify-start" style={{ position: 'relative', zIndex: 10 }}>
           {children}
         </main>
         <Footer />

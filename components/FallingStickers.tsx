@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const FallingSticker = ({ children, left, duration, delay }: { children: React.ReactNode; left: string; duration: number; delay: number }) => (
   <motion.div
-    style={{ left, top: '-120px', zIndex: 1 }}
-    className="fixed pointer-events-none select-none opacity-[0.06]"
+    style={{ left, top: '-120px', zIndex: 0, opacity: 0.05, color: '#0f9f90' }}
+    className="fixed pointer-events-none select-none"
     initial={{ y: -120, rotate: 0 }}
     animate={{ 
       y: '115vh', 
@@ -131,11 +131,11 @@ export default function FallingStickers() {
   return (
     <div 
       className="fixed inset-0 pointer-events-none overflow-hidden select-none"
-      style={{ zIndex: 1 }}
+      style={{ zIndex: 0 }}
     >
       {stickersList.map((st, idx) => (
         <FallingSticker key={idx} left={st.left} duration={st.duration} delay={st.delay}>
-          <div className="text-[#0f9f90]">
+          <div>
             {st.el}
           </div>
         </FallingSticker>
