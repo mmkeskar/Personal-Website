@@ -85,7 +85,7 @@ export default function Experience() {
         <motion.h1 variants={itemVariants} className="title-xl font-serif text-primary">
           Professional Experience
         </motion.h1>
-        <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-[#b8b0a8] max-w-3xl leading-relaxed">
+        <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
           My time in the cybersecurity industry focused on scale, robustness, and applying machine learning to parse millions of signals. This engineering rigor directly informs my approach to research in decentralized autonomy and multi-agent operations.
         </motion.p>
       </section>
@@ -116,8 +116,8 @@ export default function Experience() {
                   <h2 className="font-serif text-2xl font-bold text-primary">
                     {job.role}
                   </h2>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#8a8279] mt-1 font-medium">
-                    <span className="text-[#f0eae4] font-semibold">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-text-muted mt-1 font-medium">
+                    <span className="text-primary font-semibold">
                       {job.company}
                     </span>
                     <span>•</span>
@@ -134,10 +134,10 @@ export default function Experience() {
 
             {/* Accomplishments */}
             <div className="flex flex-col gap-2">
-              <h3 className="font-serif text-sm font-bold tracking-wider text-[#8a8279] uppercase mb-1">
+              <h3 className="font-serif text-sm font-bold tracking-wider text-text-muted uppercase mb-1">
                 Role &amp; Impact
               </h3>
-              <p className="font-sans text-sm md:text-base text-[#b8b0a8] leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#1a1a2e]/40">
+              <p className="font-sans text-sm md:text-base text-foreground leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#f5f3ef]/50">
                 {job.highlights}
               </p>
             </div>
@@ -158,11 +158,11 @@ export default function Experience() {
       <section className="mt-8 relative z-10">
         <motion.div
           variants={itemVariants}
-          className="card border border-border-color bg-slate-50/50 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="card border border-border-color bg-white glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div>
             <h3 className="font-serif text-xl font-bold text-primary">Interactive Skill Matrix</h3>
-            <p className="font-sans text-sm text-[#b8b0a8] mt-1">
+            <p className="font-sans text-sm text-text-muted mt-1">
               Explore how these industry languages and tools connect directly with my academic research frameworks.
             </p>
           </div>

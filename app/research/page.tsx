@@ -102,7 +102,7 @@ export default function Research() {
         <motion.h1 variants={itemVariants} className="title-xl font-serif text-primary">
           Research Engagements
         </motion.h1>
-        <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-[#b8b0a8] max-w-3xl leading-relaxed">
+        <motion.p variants={itemVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
           My academic work spans perception layers, deep visual representations, statistical bounds, and decentralized multi-agent coordination. Below is a detailed record of my lab affiliations and contributions.
         </motion.p>
       </section>
@@ -133,13 +133,13 @@ export default function Research() {
                 {project.subtitle}
               </span>
               
-              <div className="flex items-center gap-1.5 text-xs text-[#8a8279] mt-1">
-                <User size={12} className="text-[#8a8279]" /> {project.advisor}
+              <div className="flex items-center gap-1.5 text-xs text-text-muted mt-1">
+                <User size={12} className="text-text-muted" /> {project.advisor}
               </div>
             </div>
 
             {/* Project Overview */}
-            <p className="font-sans text-sm md:text-base text-[#b8b0a8] leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#1a1a2e]/40">
+            <p className="font-sans text-sm md:text-base text-foreground leading-relaxed border-l-2 border-border-color pl-4 py-1 italic bg-[#f5f3ef]/50">
               {project.description}
             </p>
 
@@ -159,11 +159,11 @@ export default function Research() {
       <section className="mt-8 relative z-10">
         <motion.div
           variants={itemVariants}
-          className="card border border-border-color bg-slate-50/50 glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="card border border-border-color bg-white glass p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6"
         >
           <div>
             <h3 className="font-serif text-xl font-bold text-primary">Publications Registry</h3>
-            <p className="font-sans text-sm text-[#b8b0a8] mt-1">
+            <p className="font-sans text-sm text-text-muted mt-1">
               Read my published conference proceedings and workshop papers in autonomous transit and vision systems.
             </p>
           </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin } from 'lucide-react';
+import { Award, BookOpen, Briefcase, GraduationCap, ChevronRight, Mail, Github, Linkedin, Camera, Share2, Compass } from 'lucide-react';
 
 // Faint math symbols watermark background
 const MathWatermark = () => (
@@ -87,7 +87,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="font-sans text-base md:text-lg text-[#b8b0a8] leading-relaxed max-w-2xl flex flex-col gap-4">
+          <div className="font-sans text-base md:text-lg leading-relaxed max-w-2xl flex flex-col gap-4">
             <p>
               Hi! I&apos;m <strong>Mai</strong>, a probability-and-statistics major turned autonomous driving researcher.
             </p>
@@ -118,55 +118,144 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Abstract Minimalist Geometric Graphic inside Blob Mask */}
+        {/* Abstract Coordinate Trajectory Grid Illustration */}
         <motion.div
           variants={itemVariants}
-          className="lg:col-span-5 relative h-[340px] md:h-[380px] flex items-center justify-center"
+          className="lg:col-span-5 relative h-[380px] w-full flex items-center justify-center"
         >
-          {/* Main Visual Node - Styled as paint blob */}
-          <div className="relative w-64 h-64 md:w-72 md:h-72 profile-photo-blob border border-border-color shadow-md flex items-center justify-center p-6 bg-[#232136]">
-            <div className="text-center z-10">
-              <span className="font-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">MK</span>
-              <p className="font-sans text-[10px] text-[#8a8279] font-bold tracking-widest mt-1 uppercase">
-                Autonomy Lab
-              </p>
-            </div>
-
+          {/* Main Visual Card - Styled as a sketchbook page coordinate grid */}
+          <div className="relative w-72 h-72 md:w-80 md:h-80 bg-white border border-border-color rounded-2xl shadow-md p-4 flex items-center justify-center overflow-hidden">
             {/* Geometric SVG Drawing Grid */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
-              {/* Circular grids */}
-              <circle cx="50%" cy="50%" r="40%" fill="none" stroke="rgba(240, 234, 228, 0.08)" strokeWidth="1" strokeDasharray="3 4" />
-              <circle cx="50%" cy="50%" r="30%" fill="none" stroke="rgba(240, 234, 228, 0.08)" strokeWidth="1" />
-              <circle cx="50%" cy="50%" r="20%" fill="none" stroke="rgba(240, 234, 228, 0.08)" strokeWidth="1" strokeDasharray="10 5" />
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300">
+              {/* Back grid lines */}
+              <defs>
+                <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(28, 27, 26, 0.04)" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+
+              {/* Math watermarks in grid */}
+              <text x="35" y="70" className="fill-current text-primary opacity-5 font-mono text-[10px]" style={{ fontFamily: 'monospace' }}>
+                ẋ = f(x, u)
+              </text>
+              <text x="210" y="145" className="fill-current text-primary opacity-5 font-mono text-[10px]" style={{ fontFamily: 'monospace' }}>
+                P(A|B)
+              </text>
+              <text x="180" y="60" className="fill-current text-primary opacity-5 font-mono text-[10px]" style={{ fontFamily: 'monospace' }}>
+                J = min ∑ ||e_t||²
+              </text>
+
+              {/* Axes */}
+              {/* Longitudinal Axis Y */}
+              <path d="M 60,280 L 60,30" fill="none" stroke="var(--foreground)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M 56,40 L 60,30 L 64,40" fill="none" stroke="var(--foreground)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="70" y="45" className="fill-current text-text-muted font-sans text-[9px] font-bold tracking-wider uppercase">
+                Y (Longitudinal)
+              </text>
+
+              {/* Lateral Axis X */}
+              <path d="M 40,260 L 270,260" fill="none" stroke="var(--foreground)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M 260,256 L 270,260 L 260,264" fill="none" stroke="var(--foreground)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="200" y="275" className="fill-current text-text-muted font-sans text-[9px] font-bold tracking-wider uppercase">
+                X (Lateral)
+              </text>
+
+              {/* Multi-modal predicted trajectories */}
+              {/* Green cooperative prediction path */}
+              <path d="M 60,260 C 90,260 180,240 250,210" fill="none" stroke="#2EC4B6" strokeWidth="1.5" strokeDasharray="4 4" />
               
-              {/* Dynamic trajectory lines */}
-              <path d="M 30,30 Q 120,60 150,150" fill="none" stroke="#7C5CFC" strokeWidth="1.5" />
-              <path d="M 220,220 Q 150,200 90,90" fill="none" stroke="#FF6F61" strokeWidth="1" />
+              {/* Coral/Orange prediction path */}
+              <path d="M 60,260 C 80,200 130,150 170,110" fill="none" stroke="#FF6F61" strokeWidth="1.5" strokeDasharray="4 4" />
+
+              {/* Planned Trajectory (Main Purple path) */}
+              <path d="M 60,260 C 100,260 140,180 230,120" fill="none" stroke="#7C5CFC" strokeWidth="2.5" strokeLinecap="round" />
+              
+              {/* Heading vector dots along the planned trajectory */}
+              <circle cx="95" cy="250" r="3" fill="#7C5CFC" />
+              <circle cx="130" cy="225" r="3" fill="#7C5CFC" />
+              <circle cx="165" cy="190" r="3" fill="#7C5CFC" />
+              <circle cx="198" cy="155" r="3" fill="#7C5CFC" />
+
+              {/* Coordinate Origin Vehicle marker */}
+              <rect x="52" y="252" width="16" height="16" rx="3" fill="var(--card-bg)" stroke="#7C5CFC" strokeWidth="2" transform="rotate(-15 60 260)" />
+              <line x1="60" y1="260" x2="65" y2="245" stroke="#7C5CFC" strokeWidth="2" />
             </svg>
 
-            {/* Orbiting Small Nodes */}
-            <div className="absolute top-[10%] right-[25%] w-3 h-3 bg-[#7C5CFC] rounded-full border-2 border-[#1a1a2e] shadow-sm" />
-            <div className="absolute bottom-[22%] left-[15%] w-2 h-2 bg-[#8a8279] rounded-full" />
-            <div className="absolute bottom-[12%] right-[35%] w-2 h-2 bg-[#FF6F61] rounded-full border border-[#1a1a2e]" />
+            {/* Active Nodes positioned absolutely */}
+            {/* Vision Node */}
+            <motion.div
+              style={{ left: '42%', top: '50%' }}
+              className="absolute flex items-center gap-2 bg-white border border-border-color rounded-xl px-2.5 py-1.5 shadow-sm group hover:border-[#7C5CFC] transition-colors cursor-default"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-6 h-6 rounded-lg bg-[#7C5CFC]/10 border border-[#7C5CFC]/25 flex items-center justify-center text-[#7C5CFC]">
+                <Camera size={12} />
+              </div>
+              <span className="font-sans text-[10px] font-bold text-primary">Vision</span>
+            </motion.div>
+
+            {/* MARL Node */}
+            <motion.div
+              style={{ left: '55%', top: '74%' }}
+              className="absolute flex items-center gap-2 bg-white border border-border-color rounded-xl px-2.5 py-1.5 shadow-sm group hover:border-[#2EC4B6] transition-colors cursor-default"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-6 h-6 rounded-lg bg-[#2EC4B6]/10 border border-[#2EC4B6]/25 flex items-center justify-center text-[#2EC4B6]">
+                <Share2 size={12} />
+              </div>
+              <span className="font-sans text-[10px] font-bold text-primary">MARL</span>
+            </motion.div>
+
+            {/* Planning Node */}
+            <motion.div
+              style={{ left: '68%', top: '28%' }}
+              className="absolute flex items-center gap-2 bg-white border border-border-color rounded-xl px-2.5 py-1.5 shadow-sm group hover:border-[#FF6F61] transition-colors cursor-default"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-6 h-6 rounded-lg bg-[#FF6F61]/10 border border-[#FF6F61]/25 flex items-center justify-center text-[#FF6F61]">
+                <Compass size={12} />
+              </div>
+              <span className="font-sans text-[10px] font-bold text-primary">Planning</span>
+            </motion.div>
           </div>
 
-          {/* Floating Text Badges */}
-          {floatingBadges.map((badge, idx) => (
-            <motion.div
-              key={badge.text}
-              initial={{ y: 0 }}
-              animate={{ y: [0, -5, 0] }}
-              transition={{
-                duration: 6 + idx,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              style={{ left: badge.x, top: badge.y }}
-              className="absolute px-3 py-1.5 rounded-xl text-xs font-semibold glass border border-accent/10 shadow-sm text-[#f0eae4] font-sans cursor-default hover:border-accent/30 transition-colors bg-[#2a2844]/95"
-            >
-              {badge.text}
-            </motion.div>
-          ))}
+          {/* Floating Text Badges - Positioned cleanly in corners to prevent overlap */}
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -4, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-2 left-2 px-3 py-1 rounded-xl text-[10px] font-bold border border-border-color bg-white shadow-sm text-text-muted font-sans cursor-default"
+          >
+            #ProbabilityStats
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-4 right-2 px-3 py-1 rounded-xl text-[10px] font-bold border border-border-color bg-white shadow-sm text-text-muted font-sans cursor-default"
+          >
+            #ComputerVision
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute bottom-4 left-4 px-3 py-1 rounded-xl text-[10px] font-bold border border-border-color bg-white shadow-sm text-text-muted font-sans cursor-default"
+          >
+            #Robotics
+          </motion.div>
+
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -4.5, 0] }}
+            transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute bottom-6 right-4 px-3 py-1 rounded-xl text-[10px] font-bold border border-border-color bg-white shadow-sm text-text-muted font-sans cursor-default"
+          >
+            #MARL
+          </motion.div>
         </motion.div>
       </section>
 
@@ -220,29 +309,29 @@ export default function Home() {
                   style={{
                     backgroundColor:
                       edu.status === 'starting'
+                        ? 'rgba(124, 92, 252, 0.08)'
+                        : edu.status === 'cum_laude'
+                        ? 'rgba(244, 169, 64, 0.08)'
+                        : 'rgba(46, 196, 182, 0.08)',
+                    borderColor:
+                      edu.status === 'starting'
                         ? 'rgba(124, 92, 252, 0.15)'
                         : edu.status === 'cum_laude'
                         ? 'rgba(244, 169, 64, 0.15)'
                         : 'rgba(46, 196, 182, 0.15)',
-                    borderColor:
-                      edu.status === 'starting'
-                        ? 'rgba(124, 92, 252, 0.2)'
-                        : edu.status === 'cum_laude'
-                        ? 'rgba(244, 169, 64, 0.2)'
-                        : 'rgba(46, 196, 182, 0.2)',
                     color:
                       edu.status === 'starting'
-                        ? '#c4b8fc'
+                        ? '#5a3edb'
                         : edu.status === 'cum_laude'
-                        ? '#f7c97e'
-                        : '#6ee0d3',
+                        ? '#c47c0e'
+                        : '#1e9e92',
                   }}
                 >
                   {edu.icon}
                 </div>
                 <div>
                   <h3 className="font-serif text-lg font-bold text-primary">{edu.degree}</h3>
-                  <span className="font-sans text-xs text-[#b8b0a8] font-medium">{edu.school}</span>
+                  <span className="font-sans text-xs text-text-muted font-medium">{edu.school}</span>
                 </div>
               </div>
               
@@ -251,29 +340,29 @@ export default function Home() {
                 style={{
                   backgroundColor:
                     edu.status === 'starting'
-                      ? 'rgba(124, 92, 252, 0.12)'
+                      ? 'rgba(124, 92, 252, 0.08)'
                       : edu.status === 'cum_laude'
-                      ? 'rgba(244, 169, 64, 0.12)'
-                      : 'rgba(46, 196, 182, 0.12)',
+                      ? 'rgba(244, 169, 64, 0.08)'
+                      : 'rgba(46, 196, 182, 0.08)',
                   color:
                     edu.status === 'starting'
-                      ? '#c4b8fc'
+                      ? '#5a3edb'
                       : edu.status === 'cum_laude'
-                      ? '#f7c97e'
-                      : '#6ee0d3',
+                      ? '#c47c0e'
+                      : '#1e9e92',
                   borderColor:
                     edu.status === 'starting'
-                      ? 'rgba(124, 92, 252, 0.2)'
+                      ? 'rgba(124, 92, 252, 0.15)'
                       : edu.status === 'cum_laude'
-                      ? 'rgba(244, 169, 64, 0.2)'
-                      : 'rgba(46, 196, 182, 0.2)',
-                  borderWidth: '1.5px',
+                      ? 'rgba(244, 169, 64, 0.15)'
+                      : 'rgba(46, 196, 182, 0.15)',
+                  borderWidth: '1px',
                   borderStyle: 'solid',
                 }}
               >
                 {edu.statusLabel}
               </span>
-              <p className="font-sans text-sm text-[#b8b0a8] leading-relaxed">{edu.details}</p>
+              <p className="font-sans text-sm text-text-muted leading-relaxed">{edu.details}</p>
             </motion.div>
           ))}
         </div>
@@ -283,7 +372,7 @@ export default function Home() {
       <WobblyDivider variant={2} />
 
       {/* Core Achievements & Quick Facts */}
-      <section className="flex flex-col gap-10 bg-[#232136]/50 p-8 md:p-10 rounded-2xl border border-border-color glass relative z-10">
+      <section className="flex flex-col gap-10 bg-white p-8 md:p-10 rounded-2xl border border-border-color glass relative z-10">
         <motion.h2 variants={itemVariants} className="font-serif text-2xl md:text-3xl font-bold text-primary">
           Key Milestones
         </motion.h2>
@@ -316,8 +405,8 @@ export default function Home() {
               <div
                 className="w-11 h-11 rounded-xl border flex items-center justify-center mx-auto md:mx-0 shadow-sm"
                 style={{
-                  backgroundColor: '#1a1a2e',
-                  borderColor: 'rgba(240, 234, 228, 0.08)',
+                  backgroundColor: '#f5f3ef',
+                  borderColor: 'var(--border-color)',
                   color: milestone.color,
                 }}
               >
@@ -330,7 +419,7 @@ export default function Home() {
                 {milestone.label}
               </span>
               <h3 className="font-serif text-lg font-bold text-primary">{milestone.title}</h3>
-              <p className="text-sm text-[#b8b0a8] leading-relaxed">
+              <p className="text-sm text-text-muted leading-relaxed">
                 {milestone.desc}
               </p>
             </motion.div>
@@ -355,20 +444,17 @@ export default function Home() {
             rel="noopener noreferrer"
             variants={itemVariants}
             className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
-            style={{
-              '--hover-glow': 'rgba(0, 119, 181, 0.15)',
-            } as any}
           >
             <div className="flex items-center justify-between">
               <div className="p-2.5 rounded-xl bg-[#0077B5]/10 border border-[#0077B5]/20 text-[#0077B5] group-hover:bg-[#0077B5]/20 transition-colors">
                 <Linkedin size={20} />
               </div>
-              <ChevronRight size={16} className="text-[#8a8279] group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
             </div>
             <div>
               <h3 className="font-serif text-lg font-bold text-primary">LinkedIn</h3>
-              <p className="text-xs text-[#8a8279] mt-1 font-semibold">maitrayee-keskar-0a426a19a</p>
-              <p className="text-sm text-[#b8b0a8] mt-2 leading-relaxed">
+              <p className="text-xs text-text-muted mt-1 font-semibold">maitrayee-keskar-0a426a19a</p>
+              <p className="text-sm text-text-muted mt-2 leading-relaxed">
                 Connect for research collaborations, academic networking, or professional opportunities.
               </p>
             </div>
@@ -381,20 +467,17 @@ export default function Home() {
             rel="noopener noreferrer"
             variants={itemVariants}
             className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
-            style={{
-              '--hover-glow': 'rgba(124, 92, 252, 0.15)',
-            } as any}
           >
             <div className="flex items-center justify-between">
               <div className="p-2.5 rounded-xl bg-accent/10 border border-accent/20 text-accent group-hover:bg-accent/20 transition-colors">
                 <Github size={20} />
               </div>
-              <ChevronRight size={16} className="text-[#8a8279] group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
             </div>
             <div>
               <h3 className="font-serif text-lg font-bold text-primary">GitHub</h3>
-              <p className="text-xs text-[#8a8279] mt-1 font-semibold">@mmkeskar</p>
-              <p className="text-sm text-[#b8b0a8] mt-2 leading-relaxed">
+              <p className="text-xs text-text-muted mt-1 font-semibold">@mmkeskar</p>
+              <p className="text-sm text-text-muted mt-2 leading-relaxed">
                 Browse codebase repositories, deep learning implementations, and MARL experiments.
               </p>
             </div>
@@ -405,20 +488,17 @@ export default function Home() {
             href="mailto:mkeskar@ucmerced.edu"
             variants={itemVariants}
             className="card border border-border-color p-6 flex flex-col justify-between gap-6 hover:shadow-md transition-all group cursor-pointer"
-            style={{
-              '--hover-glow': 'rgba(255, 111, 97, 0.15)',
-            } as any}
           >
             <div className="flex items-center justify-between">
               <div className="p-2.5 rounded-xl bg-[#FF6F61]/10 border border-[#FF6F61]/20 text-[#FF6F61] group-hover:bg-[#FF6F61]/20 transition-colors">
                 <Mail size={20} />
               </div>
-              <ChevronRight size={16} className="text-[#8a8279] group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
+              <ChevronRight size={16} className="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
             </div>
             <div>
               <h3 className="font-serif text-lg font-bold text-primary">Direct Email</h3>
-              <p className="text-xs text-[#8a8279] mt-1 font-semibold">mkeskar@ucmerced.edu</p>
-              <p className="text-sm text-[#b8b0a8] mt-2 leading-relaxed">
+              <p className="text-xs text-text-muted mt-1 font-semibold">mkeskar@ucmerced.edu</p>
+              <p className="text-sm text-text-muted mt-2 leading-relaxed">
                 Inquire about research collaborations, lab operations, or request papers.
               </p>
             </div>

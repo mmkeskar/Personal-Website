@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Logo/Name */}
         <Link href="/" className="font-serif text-lg font-bold tracking-tight text-primary hover:text-accent transition-all flex items-center gap-2">
           <span>Maitrayee Keskar</span>
-          <span className="hidden sm:inline text-[10px] font-sans font-bold px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(124, 92, 252, 0.15)', color: '#c4b8fc', borderColor: 'rgba(124, 92, 252, 0.1)' }}>
+          <span className="hidden sm:inline text-[10px] font-sans font-bold px-2 py-0.5 rounded-full border" style={{ backgroundColor: 'rgba(124, 92, 252, 0.08)', color: 'var(--accent)', borderColor: 'rgba(124, 92, 252, 0.15)' }}>
             Ph.D. Student
           </span>
         </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className={`font-sans text-sm font-medium transition-colors relative py-1 ${isActive ? 'text-primary' : 'text-[#b8b0a8] hover:text-primary'}`}
+                    className={`font-sans text-sm font-medium transition-colors relative py-1 ${isActive ? 'text-primary' : 'text-text-muted hover:text-primary'}`}
                   >
                     {item.name}
                     {isActive && (
@@ -72,7 +72,7 @@ export default function Navbar() {
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#b8b0a8] hover:text-accent transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <Github size={18} />
@@ -81,14 +81,14 @@ export default function Navbar() {
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#b8b0a8] hover:text-accent transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
             <a
               href={socialLinks.email}
-              className="text-[#b8b0a8] hover:text-accent transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="Email"
             >
               <Mail size={18} />
@@ -120,8 +120,8 @@ export default function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="block font-sans text-base font-semibold py-2 px-3 rounded-lg transition-colors"
                       style={{
-                        backgroundColor: isActive ? 'rgba(124, 92, 252, 0.12)' : 'transparent',
-                        color: isActive ? '#f0eae4' : '#b8b0a8'
+                        backgroundColor: isActive ? 'rgba(124, 92, 252, 0.08)' : 'transparent',
+                        color: isActive ? 'var(--accent)' : 'var(--text-muted)'
                       }}
                     >
                       {item.name}
@@ -138,7 +138,7 @@ export default function Navbar() {
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-text-muted hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Github size={20} /> Github
               </a>
@@ -146,13 +146,13 @@ export default function Navbar() {
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-text-muted hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Linkedin size={20} /> LinkedIn
               </a>
               <a
                 href={socialLinks.email}
-                className="text-[#b8b0a8] hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
+                className="text-text-muted hover:text-accent transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Mail size={20} /> Contact
               </a>

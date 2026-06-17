@@ -156,29 +156,29 @@ export default function Publications() {
         <motion.h1 variants={cardVariants} className="title-xl font-serif text-primary">
           Publication Registry
         </motion.h1>
-        <motion.p variants={cardVariants} className="font-sans text-base md:text-lg text-[#b8b0a8] max-w-3xl leading-relaxed">
+        <motion.p variants={cardVariants} className="font-sans text-base md:text-lg text-text-muted max-w-3xl leading-relaxed">
           A list of peer-reviewed journal papers, conference proceedings, and preprints. Use the search bar and tag filters below to interact with the catalog.
         </motion.p>
       </section>
 
       {/* Search & Filtering Controls */}
-      <section className="flex flex-col gap-5 bg-[#232136]/60 p-6 rounded-2xl border border-border-color shadow-sm relative z-10">
+      <section className="flex flex-col gap-5 bg-white p-6 rounded-2xl border border-border-color shadow-sm relative z-10">
         {/* Search Bar */}
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8a8279]" size={20} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" size={20} />
           <input
             type="text"
             placeholder="Search by title, venue, or authors..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border border-border-color rounded-xl bg-[#232136] focus:bg-[#2a2844] focus:outline-none focus:ring-2 focus:ring-accent/10 focus:border-accent transition-all font-sans text-[#f0eae4] placeholder:text-[#8a8279]"
+            className="w-full pl-12 pr-4 py-3 border border-border-color rounded-xl bg-white focus:bg-[#f5f3ef] focus:outline-none focus:ring-2 focus:ring-accent/10 focus:border-accent transition-all font-sans text-primary placeholder:text-text-muted"
           />
         </div>
 
         {/* Tag Filters */}
         <div className="flex flex-wrap items-center justify-between gap-4 mt-1 font-sans">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold text-[#b8b0a8] flex items-center gap-1.5 mr-2">
+            <span className="text-xs font-bold text-text-muted flex items-center gap-1.5 mr-2">
               <Filter size={14} className="text-accent" /> Filter tags:
             </span>
             {availableTags.map((tag) => {
@@ -189,8 +189,8 @@ export default function Publications() {
                   onClick={() => handleTagToggle(tag)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all focus:outline-none ${
                     isSelected
-                      ? 'bg-accent border-accent text-[#f0eae4] shadow-sm'
-                      : 'border-border-color bg-[#1a1a2e] text-[#b8b0a8] hover:text-[#f0eae4] hover:border-accent'
+                      ? 'bg-accent border-accent text-white shadow-sm'
+                      : 'border-border-color bg-white text-text-muted hover:text-primary hover:border-accent'
                   }`}
                 >
                   #{tag.replace(/\s+/g, '')}
@@ -211,7 +211,7 @@ export default function Publications() {
       </section>
 
       {/* Results Info */}
-      <div className="flex items-center justify-between font-sans text-xs font-bold text-[#8a8279] px-1 relative z-10">
+      <div className="flex items-center justify-between font-sans text-xs font-bold text-text-muted px-1 relative z-10">
         <span>Found {filteredPublications.length} Publication(s)</span>
       </div>
 
@@ -234,18 +234,18 @@ export default function Publications() {
                   <span className="text-xs font-bold tracking-wider text-accent uppercase">
                     {pub.venue}
                   </span>
-                  <span className="text-xs font-bold text-[#8a8279]">
+                  <span className="text-xs font-bold text-text-muted">
                     {pub.year}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-lg md:text-xl font-bold text-[#f0eae4] leading-snug">
+                <h3 className="font-serif text-lg md:text-xl font-bold text-primary leading-snug">
                   {pub.title}
                 </h3>
 
                 {/* Authors */}
-                <p className="font-sans text-sm text-[#b8b0a8] font-medium">
+                <p className="font-sans text-sm text-text-muted font-medium">
                   {/* Highlight Keskar name in author list */}
                   {pub.authors.split(/(Keskar, M\.|Maitrayee Keskar)/).map((part, index) => 
                     part === 'Keskar, M.' || part === 'Maitrayee Keskar' ? (
@@ -277,7 +277,7 @@ export default function Publications() {
                 <div className="flex items-center gap-3 shrink-0 font-sans">
                   <button
                     onClick={() => setActivePreviewPub(pub)}
-                    className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border border-border-color rounded-xl hover:bg-accent/15 hover:text-accent transition-colors bg-[#232136] text-[#b8b0a8]"
+                    className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border border-border-color rounded-xl hover:bg-accent/15 hover:text-accent transition-colors bg-white text-text-muted"
                   >
                     <BookOpen size={14} /> Preview Abstract
                   </button>
@@ -286,12 +286,12 @@ export default function Publications() {
                       href={pub.pdfUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border border-accent/40 text-[#c4b8fc] rounded-xl hover:bg-accent/15 hover:text-primary transition-all bg-[#232136]"
+                      className="flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold border border-accent/40 text-accent rounded-xl hover:bg-accent/5 transition-all bg-white"
                     >
                       {pub.pdfUrl.includes('drive.google.com') ? 'Presentation' : 'PDF Paper'} <ExternalLink size={14} />
                     </a>
                   ) : (
-                    <span className="text-xs font-bold text-[#8a8279] px-4 py-2.5 bg-[#1a1a2e] border border-border-color rounded-xl cursor-default">
+                    <span className="text-xs font-bold text-text-muted px-4 py-2.5 bg-[#f5f3ef] border border-border-color rounded-xl cursor-default">
                       PDF Accepted
                     </span>
                   )}
@@ -305,11 +305,11 @@ export default function Publications() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="card border border-dashed border-border-color text-center py-16 text-[#8a8279] bg-[#232136]/50"
+            className="card border border-dashed border-border-color text-center py-16 text-text-muted bg-[#f5f3ef]/50"
           >
-            <BookOpen size={36} className="mx-auto text-[#8a8279]/40 mb-3" />
+            <BookOpen size={36} className="mx-auto text-text-muted/40 mb-3" />
             <p className="font-serif text-lg font-bold text-primary">No Publications Found</p>
-            <p className="font-sans text-sm text-[#8a8279] mt-1 max-w-sm mx-auto">
+            <p className="font-sans text-sm text-text-muted mt-1 max-w-sm mx-auto">
               We couldn&apos;t find any publications matching your current search queries or tag filters. Try modifying your settings.
             </p>
           </motion.div>
