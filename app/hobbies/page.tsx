@@ -261,27 +261,27 @@ export default function Hobbies() {
                 <h3 className="font-serif text-xl font-bold text-primary">The Reading Corner</h3>
               </div>
               <p className="font-sans text-sm md:text-base text-foreground leading-relaxed mb-2">
-                My library stretches from dense textbooks in probability and statistics to classic literature, fantasy, and philosophy. A few favorite reads and references currently on my stack:
+                I love diving into fiction, fantasy, and fast-paced thrillers to unwind. Whether escaping into rich magical realms or tracing complex mystery plots, here are some of my favorite books, series, and authors:
               </p>
               
               {/* Reading List */}
               <div className="flex flex-col gap-1.5 text-xs text-text-muted pl-2 font-medium">
                 <span className="flex items-center gap-2 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>The Book of Disquiet</em> &mdash; Fernando Pessoa
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>Harry Potter</em> (Series) &mdash; J.K. Rowling
                 </span>
                 <span className="flex items-center gap-2 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>Gödel, Escher, Bach</em> &mdash; Douglas Hofstadter
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>The Inheritance Cycle</em> (Series) &mdash; Christopher Paolini
                 </span>
                 <span className="flex items-center gap-2 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>Dune</em> &mdash; Frank Herbert
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Thrillers &amp; Suspense &mdash; David Baldacci
                 </span>
                 <span className="flex items-center gap-2 text-primary">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> <em>Probability and Random Processes</em> &mdash; Grimmett
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" /> Novels &amp; Thrillers &mdash; Jeffrey Archer
                 </span>
               </div>
             </div>
             <span className="text-[10px] font-sans font-bold text-accent uppercase tracking-widest block mt-2">
-              Literature &bull; Probability Theory
+              Fiction &bull; Fantasy &bull; Thrillers
             </span>
           </motion.div>
 
