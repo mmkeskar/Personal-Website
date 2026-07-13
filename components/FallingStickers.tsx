@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const FallingSticker = ({ children, left, duration, delay }: { children: React.ReactNode; left: string; duration: number; delay: number }) => (
   <motion.div
-    style={{ left, top: '-120px', zIndex: 0, opacity: 0.20, color: '#0f9f90' }}
+    style={{ left, top: '-120px', zIndex: 0, opacity: 0.15, color: '#0f9f90' }}
     className="fixed pointer-events-none select-none"
     initial={{ y: -120, rotate: 0 }}
     animate={{ 
