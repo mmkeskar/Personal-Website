@@ -135,19 +135,22 @@ export default function Home() {
                 Hi, I&apos;m <strong>Maitrayee</strong>!
               </p>
               <p>
-                I fell in love with probability and statistics before I ever touched a line of code. There&apos;s something deeply satisfying about finding structure in uncertainty, about proving that randomness has rules. I studied it as my undergraduate major at UC San Diego, and that way of thinking followed me everywhere: into machine learning, into robotics, and eventually into the question that drives my research now: how do you make a car that can drive itself safely through an unpredictable world?
+                I studied probability and statistics as an undergrad at UC San Diego, and it shaped how I think about most problems: what do you actually know, how confident should you be, and what should you do given that uncertainty? Autonomous driving is that question made physical. A car has to decide constantly, with incomplete information, in a world that doesn&apos;t behave predictably, and mistakes have real consequences.
               </p>
               <p>
-                I&apos;m an incoming PhD student in EECS at UC Merced, working with <strong>Prof. Ross Greer</strong> on autonomous driving. My research spans trajectory prediction, motion planning, vehicle-to-everything (V2X) communication, and safety-critical decision-making. Recently, as a two-person team, we placed <strong>top-15 globally</strong> in the Waymo Open End-to-End Driving Challenge, which was one of the most rewarding experiences of my graduate career.
+                I&apos;m an incoming PhD student in EECS at UC Merced, working with <strong>Prof. Ross Greer</strong>. My work is about making learned driving policies safe and trustworthy. I like problems at the intersection of planning and statistics: motion planning and trajectory prediction, safe reinforcement learning with explicit risk constraints, and figuring out how rare failure events should shape what a policy learns.
               </p>
               <p>
-                Before all of this, I spent two years as a software engineer building production-scale AI systems for cybersecurity. That time taught me what it means to write code that has to work at scale, every day, with real consequences.
+                There&apos;s also a lot I want to explore that I haven&apos;t worked on yet. Multi-agent coordination and V2X communication, where cars stop being isolated decision-makers, and vision-language-action models, where language becomes part of how a robot perceives and acts. Safe decision-making under uncertainty is the thread that connects all of it for me.
               </p>
               <p>
-                Outside the lab, I paint, do nail art, and read as much as I can. I think the best researchers are the ones who stay curious about everything, not just their own field.
+                Before grad school, I spent two years as a software engineer building production ML systems for cybersecurity risk quantification. It taught me the difference between a model that works in a notebook and one that has to work every day.
               </p>
               <p>
-                I&apos;m always happy to chat. Feel free to reach out.
+                Outside the lab, I paint, do nail art, and read as much as I can.
+              </p>
+              <p>
+                If any of this overlaps with what you&apos;re working on, or you&apos;re thinking about problems in this space, I&apos;d genuinely love to hear from you. I&apos;m very open to collaborations.
               </p>
             </div>
 
